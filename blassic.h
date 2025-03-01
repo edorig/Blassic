@@ -85,7 +85,7 @@ typedef unsigned char BlChar;
 typedef unsigned short BlCode;
 typedef double BlNumber;
 
-#if ULONG_MAX == 4294967295UL
+#if ULONG_MAX == 18446744073709551615UL
 
 typedef long BlInt32;
 const BlInt32 BlInt32Max= LONG_MAX;
@@ -118,12 +118,17 @@ const BlUint32 BlUint32Max= USHRT_MAX;
 
 #endif
 
+
+
+
+
 typedef BlInt32 BlInteger;
 typedef BlUint32 BlLineNumber;
 typedef BlUint32 BlLineLength;
 
 const BlInteger BlIntegerMax= BlInt32Max;
 const BlInteger BlIntegerMin= BlInt32Min;
+
 
 // We limit the max line number as if it were signed.
 const BlLineNumber BlMaxLineNumber= BlIntegerMax;
