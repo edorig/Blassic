@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"> 
+<html>
+<head>
+<title>Blassic: command line options</title>
+<link rel="stylesheet" TYPE="text/css" HREF="css/notfound.css">
+</head>
+<body>
+
+<h1>Blassic. Command line options.</h1>
+
+<p>Last modified: 13-feb-2005.<br></p>
+
+
+<p>
+&quot;In case it wasn't clear, options are usually optional.&quot;
+(The tao of option parsing, in Optik documentation).
+</p>
+
+<dl>
+
+<dt>-a n1[,n2]</dt>
+<dd>
+Auto number values. n1 is the first line number to be used, n2 the
+increment. Stablishes the values for the system vars AutoInit and
+AutoInc.
+</dd>
+
+<dt>--allflags</dt>
+<dd>
+Set all compatibility flags to 1. Useful only for testing.
+</dd>
+
+<dt>--appleII</dt>
+<dd>
+Ajust several system vars to Apple II Basic compatibility.
+PRINT "A","B" leaves 12 spaces between A and B. 
+IF (condition) GOTO (line number) gives a "Syntax Horror". 
+In logical operations, nonzero values are treated as true. 
+logical operations return 1 if the result is true, zero otherwise.  
+</dd>
+
+
+
+<dt>--cpc</dt>
+<dd>
+Ajust several system vars to Amstrad CPC Basic compatibility. 
+PRINT "A","B" leaves 12 spaces between A and B.
+IF (condition) GOTO (line number) is a valid instruction.
+The  characters with ASCII codes &gt; 127 correspond to the
+CPC graphical characters in the table below.<br> 
+<img src="./blassic_CPC.png">
+</dd>
+
+<dt>-d</dt>
+<dd>
+Detach from console.
+</dd>
+
+<dt>--debug level</dt>
+<dd>
+Set the debug level to <i>level</i>, the value is asigned to the
+DebugLevel system var and is used by the IF_DEBUG instruction.
+</dd>
+
+<dt>-e command</dt>
+<dd>
+Execute <i>command</i> and exit. Must be the last option. You
+must take care with the quoting conventions of your shell.<br>
+Example in unix whith sh: <code>blassic -e 'print "Hola" '</code>
+</dd>
+
+<dt>--errout</dt>
+<dd>
+Redirect the error output to the standard output.
+</dd>
+
+<dt>--gwbasic</dt>
+<dd>
+Adjust several system vars to GW Basic compatibility.
+IF (condition) GOTO (line number) is a valid instruction.
+PRINT "A","B" leaves 14 spaces between A and B.
+</dd>
+
+<dt>--info</dt>
+<dd>
+Show additional info in some error conditions.
+</dd>
+
+<dt>--lfcr</dt>
+<dd>
+Convert line feed to carriage return in INKEY$ and GET in text
+mode in unix.
+</dd>
+
+<dt>-m mode_number | mode_name | widthxheight</dt>
+<dd>
+Mode. Executes MODE mode_number or MODE "mode_name" or MODE width, height.
+</dd>
+
+<dt> --msx </dt> 
+<dd> 
+Adjust several system vars to MSX Basic compatibility.
+PRINT "A","B" leaves 14 spaces between A and B. 
+IF (condition) GOTO (line number) is a valid instruction. 
+The characters with ASCII code &gt;128 are shown in the table below.
+</dd>
+<img src="./blassic_MSX.png"> 
+<dt>--norun</dt>
+<dd>
+If a program is specified as argument, load it but not run.
+</dd>
+
+<dt>-p list of expressions</dt>
+<dd>
+Print each of the expressions with the PRINT instruction.
+</dd>
+
+<dt>--rotate</dt>
+<dd>
+Rotate 90 degrees all graphics modes. Useful on PDAs. Arrow keys
+are also rotated.
+</dd>
+
+<dt>--spectrum</dt>
+<dd>
+Adjust several system vars to Spectrum Basic compatibility.
+PRINT "A","B" leaves 15 spaces between A and B.
+IF (condition) GOTO (line number) gives a "Syntax Horror". 
+GO TO (line number) and GO SUB (line number) are valid instuctions. 
+In logical operations, a nonzero variable is true. Logical operations 
+return 1 when the result is true, zero otherwise. 
+The characters with ASCII code &gt;128 are shown in the table below. 
+</dd>
+<img src="./blassic_spectrum.png"> 
+<dt>--tron</dt>
+<dd>
+Enter tron mode. Same effect as the TRON instruction without arguments.
+</dd>
+
+<dt>--tronline</dt>
+<dd>
+Entre tron line mode. Same effect as the TRON LINE instruction without
+arguments.
+</dd>
+
+<dt>-x keyword</dt>
+<dd>
+Exclude keyword from the list of Blassic keywords. Useful to execute
+a program that uses a Blassic keyword as variable name. Can be specified
+several times to exclude more keywords.
+</dd>
+
+<dt>--</dt>
+<dd>
+Inside of a list of expressions for the -p option marks the end of the
+list. In other case, marks the end of options.
+</dd>
+
+<dt>-</dt>
+<dd>
+Used as program name means read the program form standard input.
+</dd>
+
+</dl>
+
+<p class="fin"><span>&nbsp;That's all folks!&nbsp;</span></p>
+
+</body>
+</html>

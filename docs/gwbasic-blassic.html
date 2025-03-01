@@ -1,0 +1,125 @@
+<html>
+  <head>
+<title>Differences between Blassic and GW-BASIC</title>
+</head>
+<body>
+<h1>Differences between Blassic and GW-BASIC</h1>
+<dl>
+  <dt>ATN</dt><dd> Calculates the arctangent. Blassic uses ATAN</dd>
+  <dt>BLOAD</dt><dd><tt>BLOAD filename[,offset]</tt>
+    loads a file in memory</dd>
+  <dt>BSAVE</dt><dd><tt>BSAVE filename,offset,length</tt>
+    saves <tt>length</tt>
+    octets
+    starting at<tt> offset</tt>
+    to filename</dd>
+  <dt>CALL</dt><dd><tt>CALL numvar[(variables)]</tt>
+    calls a machine language
+    subroutine at numvar passing the comma separated list<tt>
+      variables</tt>
+    .  </dd>
+  <dt>COLOR</dt><dd><tt>COLOR [foreground][,[background][,border]]</tt>
+    defines the <tt>foreground</tt>
+    ,<tt> backgground</tt>
+    and <tt>border</tt>
+    colors. The behavior
+  depends on graphic mode and video card (CGA, EGA or
+    Hercules). Blassic sets the background color with <tt>PAPER background</tt>
+    and the foreground color with <tt>PEN foreground</tt>
+  </dd> 
+  <dt>COM(n)</dt><dd><tt>COM(n) ON/OFF/STOP</tt>
+    enables or disables trapping
+  of communications activity to the specified communications adapter. n=1,2</dd>
+  <dt>COMMON</dt><dd><tt>COMMON variables</tt>
+    passes the variables to the
+  chained program</dd>
+  <dt>CSRLIN</dt><dd>returns the current line (row) position of the
+    cursor. Blassic uses <tt>YPOS</tt>
+  </dd>
+  <dt>DEF SEG</dt><dd><tt>DEF SEG [=address]</tt>
+    assigns the current segment address to be referenced by a subsequent BLOAD, BSAVE, CALL,
+PEEK, POKE, or USR.</dd>
+  <dt>DEF USR</dt><dd><tt>DEF USR[n]=integer</tt>
+    specifies the starting address of an assembly language subroutine to be called from memory by
+the USR function.</dd>
+  <dt>ERDEV($)</dt><dd>returns the actual value (ERDEV) of a device
+    error, and the name of the device (ERDEV$) causing the error.</dd>
+  <dt>EXTERR</dt><dd>returns extended error information.</dd> 
+  <dt>FRE</dt><dd>returns the number of available bytes in allocated string memory.</dd>
+  <dt>IOCTL</dt><dd><tt>IOCTL[#]file number,string</tt>
+    sends a "control data" string to a character device driver anytime after the
+driver has been opened. </dd>
+  <dt>IOCTL$</dt><dd><tt>IOCTL$([#]file number)</tt>
+    ead a "control data" string from an open character device driver.</dd>
+  <dt>KEY</dt><dd><tt>KEY key number,string expression</tt>
+    key number is the
+    number of the function key to be redefined. key number may range from 1-20.
+string expression is the key assignment. Any valid string of 1 to 15
+    characters may be used.</dd>
+  <dd> <tt>KEY ON</tt>
+Displays the first six characters of the key values on the 25th line
+    of the screen.</dd>
+  <dd><tt> KEY OFF</tt>
+Erases the key display from the 25th line</dd> 
+  <dt>KEY(n)</dt><dd>initiates and terminates key capture in a GW-BASIC program.</dd>
+  <dt>LOCK</dt><dd><tt>LOCK [#]n [,[record number] [TO record number]]</tt>
+  restricts the access by other processes to all or part of a file that has been opened.</dd>
+  <dt>ON COM/KEY/PEN/PLAY/STRIG/TIMER</dt><dd> creates an event trap line number for a specified event (such as communications, pressing
+function or cursor control keys, using the light pen, or using joysticks).</dd>
+  <dt>OUT</dt><dd><tt>OUT port,byte</tt>
+    sends byte to a machine output port port.</dd>
+  <dt>PALETTE</dt><dd><tt>PALETTE [attribute,color]</tt>
+    gives color to attribute. Blassic uses <tt>INK attribute, red,
+    green, blue</tt>
+  </dd>
+  <dt>PCOPY</dt><dd><tt>PCOPY sourcepage, destinationpag</tt>
+    e copies one screen page to another in all screen modes.</dd>
+  <dt>PEN</dt><dd><tt>PEN ON/OFF/STOP</tt>
+    enables or disables the reading of
+    optical pen.</dd>
+  <dd><tt>PEN(n)</tt>
+    reads the coordinates of optical pen</dd>
+  <dt>PLAY</dt><dd><tt>PLAY string expression</tt>
+plays music by embedding a music macro language into the string data type.</dd>
+  <dt>PLAY(n)</dt><dd>returns the number of notes currently in the background music queue.</dd>
+  <dt>PMAP</dt><dd>PMAP is used with WINDOW and VIEW to translate coordinates.</dd>
+  <dt>PRESET</dt><dd>displays a point at a specified place on the
+  screen during use of the graphics mode. (Blassic uses PLOT)</dd>
+  <dt>PSET</dt><dd>same </dd>
+<dt>SCREEN</dt><dd><tt>SCREEN [mode]</tt>
+  selects a graphic mode<ol>
+      <li>SCREEN 0: text mode (MODE 0)</li>
+     <li> SCREEN 1: 320x200 (MODE 1)</li> 
+      <li>SCREEN 2: 640x200 (MODE 2)</li> 
+      <li>SCREEN 7:320 x 200  (MODE 1)</li> 
+      <li>SCREEN 8 640 x 200 (MODE 2) </li>
+      <li>SCREEN 9: 640x350 (MODE 10)</li>
+      <li>SCREEN 10: 640x350 (MODE 10) </li>
+      
+    </ol>
+  </dd>
+<dt>SOUND</dt><dd><tt>SOUND freq,duration</tt>
+  emits a sound of frequency
+  freq for duration clock ticks. Clock ticks occur 18.2 times per second.</dd>
+  <dt>STICK</dt><dd>STICK(n) returns the x and y coordinates of two joysticks.</dd>
+  <dt>STRIG</dt><dd></dd>
+  <dt>STRIG(n)</dt><dd></dd>
+  <dt>TIMER</dt><dd></dd>
+  <dt>UNLOCK</dt><dd><tt>UNLOCK [#]n [,[record number] [TO record
+    number]]</tt>
+  releases locks that have been applied to an opened file by
+  the LOCK command.</dd>
+  <dt>USR</dt><dd></dd>
+  <dt>USR</dt><dd></dd>
+  <dt>VARPTR$</dt><dd></dd>
+  <dt>VIEW</dt><dd></dd>
+  <dt>VIEW PRINT</dt><dd></dd>
+  <dt>WAIT</dt><dd><tt>WAIT port number, n[,j]</tt>
+    suspends program execution while monitoring the status of a machine input port.</dd>
+  <dt>WINDOW</dt><dd></dd>
+</dl>
+
+
+
+</body>
+</html>

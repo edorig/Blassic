@@ -1,0 +1,1797 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+
+<head>
+<title>Blassic: keywords</title>
+<link rel="stylesheet" TYPE="text/css" HREF="css/notfound.css">
+</head>
+
+<body>
+
+<h1>Blassic: keywords.</h1>
+
+<p>
+Last revision: 12-feb-2005
+</p>
+
+<a href="#a">a</a> <a href="#b">b</a> <a href="#c">c</a> <a href="#d">d</a>
+<a href="#e">e</a> <a href="#f">f</a> <a href="#g">g</a> <a href="#h">h</a>
+<a href="#i">i</a> <a href="#j">j</a> <a href="#k">k</a> <a href="#l">l</a>
+<a href="#m">m</a> <a href="#n">n</a> <a href="#o">o</a> <a href="#p">p</a>
+<a href="#q">q</a> <a href="#r">r</a> <a href="#s">s</a> <a href="#t">t</a>
+<a href="#u">u</a> <a href="#v">v</a> <a href="#w">w</a> <a href="#x">x</a>
+<a href="#y">y</a> <a href="#z">z</a>
+
+<p>Square brackets represent that the part surrounded is optional.</p>
+
+<p>Several elements separated by | means that you may choose one of the
+elements.</p>
+
+<hr>
+
+<dl>
+
+<a name="a"></a>
+
+<dt>ABS</dt>
+<dd>Function. Returns the absolute value of the parameter.<br>
+<code>PRINT ABS (-1)</code></dd>
+
+<dt>ACOS</dt>
+<dd>Function. Returns the arc cosine of the parameter.</dd>
+
+<dt>ACOSH</dt>
+<dd>Function. Returns the hyperbolic arc cosine of the parameter.</dd>
+
+<dt>AFTER</dt>
+<dd>See SYMBOL AFTER.</dd>
+
+<dt>ALLOC_MEMORY</dt>
+<dd>
+Function: <code>ALLOC_MEMORY ( n )</code> Allocates a block of memory of
+size n and return his address. The block of memory is readable, writable
+and executable if the operating system allows it. See the sample program
+machinecode.bas for an example of use.
+</dd>
+
+<dt>AND</dt>
+<dd>
+Operator. Does a integer or logical (depending on the state of the system
+flags) binary and between its arguments.
+</dd>
+
+<dt>APPEND</dt>
+<dd>See OPEN.</dd>
+
+<dt>AS</dt>
+<dd>See OPEN, SOCKET, FIELD and NAME.</dd>
+
+<dt>ASC</dt>
+<dd>Function. Returns the code of the first char of the argument, 0 if the
+string is empty. The name comes from the ASCII character set, but the code
+can be outside the ascii range (0-127).</dd>
+
+<dt>ASIN</dt>
+<dd>Function. Returns the arc sine value of the parameter.</dd>
+
+<dt>ASINH</dt>
+<dd>Function. Returns the hyperbolic arc sine of the parameter.</dd>
+
+<dt>AT</dt>
+<dd>PRINT modifier. <code>PRINT ... AT y, x ...</code> Place the
+cursor in the x column of the line y. Contrary to the other cursor movement
+instructions, the upper left of the screen is 0, 0.</dd>
+
+<dt>ATAN</dt>
+<dd>Function. Returns the arc tangent of the arguemnt.</dd>
+
+<dt>ATAN2</dt>
+<dd>Function. <code>ATAN (y, x)</code> returns the arc between the x axis
+and the line (0, 0) - (x,y).</dd>
+
+<dt>ATANH</dt>
+<dd>Function. Returns the hyperbolic arc tangent of the argument.</dd>
+
+<dt>AUTO</dt>
+<dd><code>AUTO [initial number] [, increment]</code> Enter the auto
+numbering mode. The default values are 10 and 10 but can be modified
+via the system vars AutoInit and AutoInc or with the -a command line
+option.</dd>
+
+<a name="b"></a>
+
+<dt>BEEP</dt>
+<dd>Makes a beep.</dd>
+
+<dt>BIN$</dt>
+<dd>Function. <code>BIN$ (number [,c] )</code> Returns a string of binary
+digits with the value of number, if the c argument is present and the length
+of the result is shorter than c is filled with zeroes.</dd>
+<!-- Important correction to OPEN --> 
+<dt>BINARY</dt>
+<dd>Mode specification for OPEN</dd>
+
+<dt>BREAK</dt>
+<dd>See <code>ON BREAK</code>.</dd>
+<dt>BRIGHT</dt>
+<dd> <code>BRIGHT a</code> should set brightness level to a. 
+<dd><code>BRIGHT #n,a </code> should set brightness level a in window
+  n. Both are actually no-op. </dd>
+
+<a name="c"></a>
+
+<dt>CHAIN</dt>
+<dd><code>CHAIN filename$ [ , line ]</code> Loads a program in memory and
+begin execution from the beginning or from <i>line</i>. Variables are
+not cleared.<br>
+<code>CHAIN MERGE filename$ [ , line ] [ , DELETE range ]</code> Merge
+a program with the present in memory and begins executing the resulting
+program from the beginning or from <i>line</i>. If the DELETE part is
+present the range of lines is deleted before the merge, <i>range</i> can
+be a single line or in the form initial-final where initial and final are
+line numbers and can be omitted.</dd>
+
+<dt>CHDIR</dt>
+<dd>Changes current directory.</dd>
+
+<dt>CHR$</dt>
+<dd>Function. Returns a string of length 1 with the char that has the
+argument as ASCII code.</dd>
+
+<dt>CINT</dt>
+<dd>Function. Returns the argument rounded to the closest integer.</dd>
+
+<dt>CIRCLE</dt>
+<dd><code>CIRCLE (x, y), r, [ color ], [ initial ], [ final ] [ , e ]</code>
+Draws a circumference centered in <i>(x, y)</i> with radius <i>r</i>,
+setting the graphics pen to <i>color</i> beginning in angle 0 or in
+<i>initial</i> and ending in 2 * PI radians or in <i>final</i>. If <i>e</i>
+is present an ellipse is drawed instead, if <i>e</i> is greater than 1 the
+x axis is divided by <i>e</i>, else the y axis is multiplied by it.</dd>
+
+<dt>CLEAR</dt>
+<dd><code>CLEAR</code> Clear all variables and arrays, close all opened
+files, erase user defined functions, set trigonometric mode to radians,
+forget pending loops.<br>
+<code>CLEAR INK</code> Restore all inks to its default values.<br>
+<code>CLEAR INPUT</code> Discards all key and mouse button events
+actually buffered.</dd>
+
+<dt>CLOSE</dt>
+<dd><code>CLOSE #n</code> flushes the buffer to the file previously
+  associated to channel n by the open command and terminates the
+  association of the channel with the file. see OPEN </dd>
+
+<dt>CLS</dt>
+<dd>In text mode: <code>CLS</code> Clear the screen.<br>
+In graphics mode <code>CLS [ #window ]</code> Clear the text window
+specified (0 by default).<br>
+See also GRAPHICS CLS.</dd>
+
+<dt>COLOR</dt>
+<dd><code> COLOR n</code> in graphics mode selects the color for
+  drawing with PLOT and DRAW. n>15 is equivalent to <code>COLOR 0</code>.<br>
+In mode 0, Color is formed by combination of blue, green and red,
+  encoded over 3 bits. A bit set to zero means that the color is
+  absent, a bit set to one means that the color is present. Blue is
+  the least significant bit, red is the most significant bit, so that 
+the color <code>n=2^2*red+2^1*green+2^0*blue.</code><br> 
+In modes 2 and 1, color is formed by the same combination of red,
+  green and blue, plus an intensity bit. If this bit is set to one,
+  the color is light, if it is set to zero the color is dark, so that
+  the color is <code>n=2^3*intensity+2^2*red+2^1*green+2^0*blue.</code></dd>
+
+<dt>CONT</dt>
+<dd>Continue execution previously stopped by a STOP instruction or
+a break.</dd>
+
+<dt>COPYCHR$</dt>
+<dd>Function. <code>COPYCHR$ (#w)</code> return the character present at
+the current cursor position in window w, or the empty string if the
+character can't be recognized.</dd>
+
+<dt>COS</dt>
+<dd>Function. Returns the cosine value or the argument.</dd>
+
+<dt>COSH</dt>
+<dd>Function. Returns the hyperbolic cosine value of the argument.</dd>
+<!-- direct access files --> 
+<dt>CVD</dt>
+<dd>Function <code> CVD(string-variable) </code> Converts an 8 bytes
+  string read from a random access file into a single-precision
+  floating point number.</dd>
+
+<dt>CVDMBF</dt>
+<dd>Function <code> CVDMBF(string-variable) </code> Converts an 8 bytes
+  string in Microsoft Binary Format (MBF) read from a random access
+  file into a single-precision floating point number.</dd>
+
+<dt>CVI</dt>
+<dd>Function <code> CVI(string-variable) </code> Converts a 2 bytes
+  string read from a random access file into a 16-bit integer. </dd>
+
+<dt>CVL</dt>
+<dd>Function <code> CVI(string-variable) </code> Converts a 4 bytes
+  string read from a random access file into a 32-bit integer. </dd></dd>
+
+<dt>CVS</dt>
+<dd>Function <code> CVS(string-variable) </code> Converts a 4 bytes
+  string read from a random access file into a single-precision
+  floating point number.</dd>
+
+<dt>CVSMBF</dt>
+<dd>Same as above for Microsoft Binary Format.</dd>
+
+<a name="d"></a>
+
+<dt>DATA</dt>
+<dd><code> DATA value1,value2,... </code>
+  stores <code>value1,value2,...</code> to be used by READ statement. </dd>
+
+<dt>DATE$</dt>
+<dd>Function without arguments. Returns a string with the current date in
+the format mm-dd-yyyy.</dd>
+
+<dt>DEC$</dt>
+<dd>Function <code>DEC$ ( number, format)</code> Returns a string
+representing the <i>number</i> using the specified <i>format</i>, that
+is a format specifier like the one used in PRINT USING albeit limited to numeric
+formats that represent a single number.</dd>
+
+<dt>DEF</dt>
+<dd><code>DEF DBL | INT | REAL | SNG | STR letter-specifier.</code>
+Define that the variables beginning by a letter specified in the
+<i>letter-specifier</i> are of type: DBL, REAL, SNG &rarr; floating
+point, INT &rarr; integer, STR &rarr; string. The various types of
+floating point are admitted for compatibility with other Basics.<br>
+The <i>letter-specifier</i> is a comma separated list of single letter
+				of ranges of letters.<br><br> </dd>
+				
+<dt>DEF FN</dt> See <code>FN</code> below </dd>
+
+<dt>DEFDBL</dt>
+<dd>Same as DEF REAL</dd>
+
+<dt>DEFINT</dt>
+<dd>Same as DEF INT</dd>
+
+<dt>DEFREAL</dt>
+<dd>Same as DEF REAL</dd>
+
+<dt>DEFSNG</dt>
+<dd>Same as DEF REAL</dd>
+
+<dt>DEFSTR</dt>
+<dd>Same as DEF STR</dd>
+
+<dt>DELETE</dt>
+<dd><code>DELETE n</code> removes the
+  line <code>n</code> from the program.<br> 
+<code>DELETE n1-n2</code> removes the
+lines between<code>n1</code> and <code>n2</code> (both included)
+from the program.</dd>
+
+<dt>DEG</dt>
+<dd>Set the trigonometric mode to degrees.</dd>
+
+<dt>DELIMITER</dt>
+<dd><code>DELIMITER #channel, char$</code> defines the field
+  separator as specified in the string variable char$ for the given channel.  </dd>
+
+<dt>DIM</dt>
+<dd><code>DIM array(dimension)</code> declares an array (of string or
+  numeric variable) of given dimension.</dd>
+
+<dt>DRAW</dt>
+<dd><code> DRAW x,y</code> draws a line from current graphics cursor
+  position to the point of coordinates
+  (x,y). See <a name="p">PLOT</a> for orientation of axes. <br>
+  <code> DRAW x,y,c </code> draws a line of color c.<br>
+  <code> DRAW x,y,c,m </code> draws a line of color c with mode m. 
+  For m=0, the pixels are overwritten. For m=1 they are XORed bitwise with the
+  pixels already present. For m=2, a logical AND is used. For m=3, a
+  logical OR is used. <br>
+  <code> DRAW a$ </code> draws a figure defined in Graphics Macro
+  Language (GML) of GW-BASIC.
+  <table align="center" border="1" caption="Graphics Macro Language">
+   <tr> <th><b>Graphics Macro
+  Language</b> Adapted from <i>GW-BASIC User's Reference</i> (&copy; Microsoft
+    Corporation, 1986, 1987)   </th> </tr> 
+  <tr><  <td>Command</td> <td align="center">Moves</td> </td></tr> 
+<tr> <td> <tt>Un</tt> </td> <td> up of <tt>n</tt>  pixels </td></td></tr> 
+<tr> <td> <tt>Dn</tt> </td> <td> down of <tt>n</tt>  pixels </td></td></tr> 
+<tr> <td> <tt>Ln</tt> </td> <td> left of <tt>n</tt>  pixels </td></td></tr> 
+<tr> <td> <tt>Rn</tt> </td> <td> right of <tt>n</tt>  pixels </td></td></tr> 
+<tr> <td> <tt>En</tt> </td> <td> diagonally up and right of <tt>n</tt>
+    pixels </td></td></tr>
+<tr><td> <tt>Fn</tt> </td> <td> diagonally down and right of <tt>n</tt>
+    pixels </td></td></tr>
+<tr> <td> <tt>Gn</tt> </td> <td> diagonally down and left of <tt>n</tt>
+    pixels </td></td></tr>
+<tr> <td> <tt>Hn</tt> </td> <td> diagonally up and left of <tt>n</tt>
+    pixels </td></td></tr>
+<tr> <td> <tt>Mx,y</tt> </td> <td> Move absolute or relative. If <tt>x</tt> is preceded by a + or - , <tt>x</tt> and </tt>y</tt> are added to the
+current graphics position, and connected to the current position by a line.
+Otherwise, a line is drawn to point <tt>x, y</tt> from the current
+				position.</td></td></tr>
+<tr> <td><tt>B</tt></td> <td>Move, but plot no points.</td></td></tr>
+				<tr><td> 
+				    <tt>N</tt></td>
+<td>Move, but return to original position when done.</td></td></tr>   
+<tr> <td>Command</td> <td align="center">
+    Action </td> </td></tr>
+<tr> <td>An<tt></tt></td> <td> 	Set angle n . n may range from 0 to 3, where 0 is 0°, 1 is 90°, 2 is 180°,
+and 3 is 270°. Figures rotated 90° or 270° are scaled so that they will
+appear the same size as with 0° or 180° on a monitor screen with the
+    standard aspect ratio of 4:3.</td></td></tr>
+<tr> <td> <tt>TAn</tt></td> <td> Turn angle n . n can be any value from negative 360 to positive 360. If the
+value specified by n is positive, it turns the angle counter-clockwise. If the
+value specified by n is negative, it turns clockwise.</td></td></tr> 
+<tr> <td><tt>Cn</tt></td> <td>   Set color to <tt>n</tt>
+    (see <code>PEN</code> and <code>INK</code>)</td></td></tr>
+<tr> <td><tt>Sn</tt></td><td>Set scale factor. n may range from 1 to 255. n is divided by 4 to derive the
+scale factor. The scale factor is multiplied by the distances given with U ,
+D , L , R , E , F , G , H , or relative M commands to get the actual distance
+  traveled. The default for S is 4.</td></td></tr>
+<tr> <td><tt>Ppaint, boundary</tt></td><td>pecifies the colors for a graphics figure and creates a filled-in figure.
+    <tt>paint</tt>
+    specifies what color you want the figure filled in with.
+<tt>boundary</tt> specifies the border color (outline).</td></td></tr>
+    </table>
+</dd>
+
+<dt>DRAWARC</dt>
+<dd><code>DRAWARC x,y,g</code> draws a circle arc of angle g (in
+  radians) from current coordinates
+  to the point of coordinates x,y. Similar to ZX-Spectrum Basic DRAW
+  instruction. </dd>
+
+<dt>DRAWR</dt>
+<dd><code>DRAWR x,y</code> draws a line to to relative coordinates
+  (x,y) with respect to current graphics cursor. 
+  .</dd>
+
+<a name="e"></a>
+
+<dt>EDIT</dt>
+<dd><code>EDIT n</code> edits line n of the program. Often buggy,
+  causes "Out of Memory" errors.</dd>
+
+<dt>ELSE</dt>
+<dd> In an <code> IF condition THEN instructions1 ELSE
+    instructions2</code> the <code>instructions2</code> are executed
+    when <code>condition</code> is false. </dd>
+
+<dt>END</dt>
+<dd><code>END</code> terminates a program, returning to the
+  interactive mode of the interpreter.</dd>
+
+<dt>ENVIRON</dt>
+<dd>Not documented yet.</dd>
+<!--- modifies environment variables ---> 
+<dt>ENVIRON$</dt>
+<dd>The function <code>ENVIRON$("NAME")</code> returns the value of the
+  environment variable of name NAME. If the variable is not defined,
+  the functions returns an empty string.</dd>
+
+<dt>EOF</dt>
+<dd>Checks to see if end of specified file has been reached
+    during input.</dd>
+
+<dt>ERASE</dt>
+<dd>Function. <code>ERASE array</code> initializes the values of all
+  elements in the array to zero for a numeric array and to the
+  empty string for a string array.  
+
+</dd>
+
+<dt>ERL</dt>
+<dd>Function without parameters. Returns the program line where the last
+error was generated, used normally inside an ON ERROR GOTO routine.</dd>
+
+<dt>ERR</dt>
+<dd>Function without parameters. Returns the code of the last error generated,
+used normally inside an ON ERROR GOTO routine.</dd>
+<table align="center" border="1">
+  <tr><td>Type of error</td> <td> Numeric code </td> </tr> 
+ <tr><td>ErrSyntax   </td><td>        1</td></tr>
+  <tr><td> ErrMismatch </td><td> 2</td></tr>
+ <tr><td> ErrGosubWithoutReturn</td><td>3</td></tr>
+<tr><td> ErrReturnWithoutGosub</td><td>4</td></tr>
+<tr><td> ErrNextWithoutFor</td><td>5</td></tr>
+<tr><td> ErrNotImplemented</td><td>6</td></tr>
+<tr><td> ErrDivZero</td><td>7</td></tr>
+<tr><td> ErrDataExhausted</td><td>8</td></tr>
+<tr><td> ErrInvalidCommand</td><td>9</td></tr>
+<tr><td> ErrPolite</td><td>10</td></tr>
+<tr><td> ErrBadSubscript</td><td>11</td></tr>
+<tr><td> ErrOutMemory</td><td>12</td></tr>
+<tr><td> ErrAlreadyDim</td><td>13</td></tr>
+<tr><td> ErrNoContinue</td><td>14</td></tr>
+<tr><td> ErrFileNumber</td><td>15</td></tr>
+<tr><td> ErrFileMode</td><td>16</td></tr>
+<tr><td> ErrFileAlreadyOpen</td><td>17</td></tr>
+<tr><td> ErrFileRead</td><td>18</td></tr>
+<tr><td> ErrFileWrite</td><td>19</td></tr>
+<tr><td> ErrUntilWithoutRepeat</td><td>20</td></tr>
+<tr><td>ErrWendWithoutWhile</td><td>  21</td></tr>
+<tr><td>        ErrWhileWithoutWend</td><td>  22</td></tr>
+ <tr><td>       ErrBlassicInternal</td><td>   23</td></tr>
+<tr><td>        ErrNoDynamicLibrary</td><td>  24</td></tr>
+<tr><td>        ErrNoDynamicSymbol</td><td>   25</td></tr>
+  <tr><td>      ErrCannotResume</td><td>      26</td></tr>
+ <tr><td>       ErrNoLabel</td><td>           27</td></tr>
+ <tr><td>       ErrMisplacedLocal</td><td>    28</td></tr>
+  <tr><td>      ErrFieldOverflow</td><td>     29</td></tr>
+<tr><td>        ErrFileNotFound</td><td>      30</td></tr>
+ <tr><td>       ErrLineExhausted</td><td>     31</td></tr>
+ <tr><td>       ErrFunctionNoDefined</td><td> 32</td></tr>
+ <tr><td>       ErrIncompleteDef</td><td>     33</td></tr>
+ <tr><td>       ErrInvalidDirect</td><td>     34</td></tr>
+  <tr><td>      ErrBadRecord</td><td>         35</td></tr>
+  <tr><td>      ErrFunctionCall</td><td>      36</td></tr>
+  <tr><td>      ErrSocket</td><td>            37</td></tr>
+  <tr><td>      ErrRenameFile</td><td>        38</td></tr>
+  <tr><td>      ErrOperatingSystem</td><td>   39</td></tr>
+   <tr><td>     ErrPastEof</td><td>           40</td></tr>
+  <tr><td>      ErrNoGraphics</td><td>        41</td></tr>
+  <tr><td>      ErrImproperArgument</td><td>  42</td></tr>
+  <tr><td>      ErrDomain</td><td>            43</td></tr>
+<tr><td>ErrRange</td><td>             44</td></tr>
+<tr><td>        ErrLineNotExist</td><td>      45</td></tr>
+<tr><td>        ErrFnRecursion</td><td>       46</td></tr>
+<tr><td>        ErrOverflow</td><td>          48</td></tr>
+<tr><td>        ErrRegexp</td><td>            49</td></tr>
+<tr><td>       ErrDynamicUnsupported</td><td>50</td></tr>
+<tr><td>       ErrRepeatWithoutUntil</td><td>51</td></tr>
+<tr><td>       ErrUnexpectedFnEnd</td><td>   52</td></tr>
+<tr><td>       ErrNoFnEnd</td><td>           53</td></tr>
+<tr><td>      ErrDuplicateLabel</td><td>    54</td></tr>
+</table>
+<dt>ERROR</dt>
+<dd><code>ERROR n</code> Forces the error number n, stopping the program or jumping
+to the position established by an ON ERROR GOTO instruction. For a list of the error
+numbers used by blassic refer to the error.h file in the sources.</dd>
+
+<dt>EXIT</dt>
+<dd><code>EXIT [n]</code> Quit blassic returning to the operating system.
+The n value, 0 if not specified, is used as the return value of the blassic
+command (the ERRORLEVEL value in Windows).</dd>
+
+<dt>EXP</dt>
+<dd>Function. Returns the exponential of the argument, that is, e (the base
+of natural logarithms) raised to that power.</dd>
+
+<a name="f"></a>
+
+<dt>FIELD</dt>
+<dd><code>FIELD #n, integer1 AS string-variable1, integer2 AS
+  string-variable2, etc... </code> indicates how
+  the records in the random access file associated with channel n are
+  read or written. The first integer1 bytes of the record are associated
+  with string-variable1, the following integer2 bytes with
+  string-variable2  etc... the sum of the integer variables must match
+  the length of the record.  
+  Once the FIELD command is executed,
+<ul>
+  <li> GET #n
+  operation reads the first integer1 bytes of the record in string-variable1, the
+  next integer2 bytes in string-variable2 etc... 
+  <li> A PUT #n writes string-variable1 in the first integer1 bytes,
+  string-variable2 in the next integer2 bytes of the record, etc...  
+    of the record,
+</ul> 
+</dd>
+
+<dt>FIELD APPEND</dt>
+<dd><code>FIELD APPEND #n, integer1 AS string-variable1, etc...</code>
+indicates that  integer1 bytes are appended to the previous 
+record definition of the random access file and are associated with string
+variable1, etc... </dd> 
+
+<dt>FIELD CLEAR</dt>
+<dd><code>FIELD CLEAR #num</code> erases <tt>FIELD</tt> definition for
+  channel <code>num</code>. 
+</dd>
+
+<dt>FILES</dt>
+<dd><code>FILES</code> List files in current directory.<br>
+<code>FILES [ #channel , ] "mask"</code> List files in current directory
+that matches mask. The wildcards allowed are operating system dependant.
+The listing is directed to the channel specified, 0 by default, that can
+be a window or a file.</dd>
+
+<dt>FIND_FIRST_NOT_OF</dt>
+<dd>Function. As FIND_FIRST_OF but with characters that are not in
+char$.</dd>
+
+<dt>FIND_FIRST_OF</dt>
+<dd>Funtion. <code>FIND_FIRST_OF (searched$, char$)</code> Returns the
+first position of searched that contains a character of char$, or 0 if
+none is found.</dd>
+
+<dt>FIND_LAST_NOT_OF</dt>
+<dd>Function. As FIND_LAST_OF, but with characters thar are not in
+char$.</dd>
+
+<dt>FIND_LAST_OF</dt>
+<dd>Fuction. As FIND_FIRST_OF but returns the last position.</dd>
+
+<dt>FINDFIRST$</dt>
+<dd>Function. <code>FINDFIRST$ (mask$)</code> Returns the first file that
+matches wiht mask$ or the empty string if there is no match . The wildcards
+allowed and his interpertation are operating system dependant.</dd>
+
+<dt>FINDNEXT$</dt>
+<dd>Function whitout parameters. Returns the next file that matches with the
+mask$ used in the las FINDFISRT$ executed, or the empty string if there is
+no more matches.</dd>
+
+<dt>FIX</dt>
+<dd>Unlike CINT, FIX merely removes the part of the numeric
+    expression, to the right of the decimal point, and leaves an integer
+    result, rounding towards zero.  </dd>
+
+<dt>FN</dt>
+<dd><code>DEF FN [A-Za-z](x)=expression</code> defines a function of the
+    argument <code>x</code> the value of which is given by expression. A space is
+    requires between FN and the 1st letter of the function name. Multiline
+    function defintions are possible with <code> DEF FN[A-Za-z](x):
+    instructions: FN END</code>. </dd>
+
+<dt>FOR</dt>
+<dd><code> FOR variable = begin TO end STEP increment</code> indicates the
+  beginning of a <code>FOR/NEXT</code> loop. The variable is
+  initialized to the value begin, and the code
+  after the instruction <code>FOR</code> and before the
+  closest <code>NEXT</code> is executed. The execution then returns
+  to the <code>FOR</code> where the variable in incremented of the
+  increment. Execution of the loop is repeated until the variable reaches
+  or exceeds end. See also <code>NEXT,STEP</code>. </dd>
+
+<dt>FREE_MEMORY</dt>
+<dd>
+Deallocates the memory at the address sppecified. The addres must have
+been obtained by a previous ALLOC_MEMORY function, otherwise the result
+is undefined.
+</dd>
+
+<dt>FREEFILE</dt>
+<dd>Function. Returns the lower free channel number.</dd>
+
+<a name="g"></a>
+
+<dt>GET</dt>
+<dd><code> GET a$</code> waits for a key being pressed. The
+  associated character is placed in the variable a$.<br>
+  <code> GET #n </code> reads a record from a random access file attached
+  with channel n.<br>
+  <code> GET (x1,y1)-(x2,y2),a</code> reads an image in the rectangle
+  of upper left corner <code>(x1,y1)</code> and lower right
+  corner <code>(x2,y2)</code> and stores it in the variable a.<br> 
+ </dd>
+
+<dt>GOSUB</dt>
+<dd><code>GOSUB line_specification</code> Calls the subroutine located at
+line_specification, that can be a line number or a valid LABEL. The control
+will return to the actual point when a RETURN is executed. See also ON
+GOSUB.</dd>
+
+<dt>GOTO</dt>
+<dd><code>GOTO line_specification</code> Transfer the control to the position
+line_specification, tnat can be a line number or a valid LABEL. See also
+ON GOTO.</dd>
+
+<dt>GRAPHICS</dt>
+<dd>Not documented yet.</dd>
+<!---- Seems to combine PEN, PAPER and CLS in a single instruction
+---> 
+<a name="h"></a>
+
+<dt>HEX$</dt>
+<dd>Function. <code>HEX$ (number [ , width] )</code> Returns the hexadecimal
+	representation of number as string. If width is specified and is too
+	great the result will be filed with leading zeros, if is too small
+	the result is NOT shortened.</dd>
+
+<a name="i"></a>
+
+<dt>IF</dt>
+<dd><code> IF condition THEN instructions1 ELSE instructions2</code>
+  will execute the instructions 1 is the condition is true, the
+  instructions 2 if the condition is false. </dd>
+
+<dt>IF_DEBUG</dt>
+<dd><code>IF_DEBUG n</code> If debug level is greater or equal than n the
+rest of the line is executed, otherwise is ignored.<br>
+See the --debug command line option and the DebugLevel system var.</dd>
+
+<dt>INK</dt>
+<dd><code>INK n</code> Same as <code>PEN n</code><br>
+<code>INK n, color [, second]</code> Define the ink number n as the
+color, from the table of Amstrad CPC compatible colors. The optional
+second parameter is accepted for compatibility with the CPC but is
+ignored.<br>
+<code>INK n, r, g, b</code> Define the ink number n as the color from
+the rgb components, r, g and b between 0 and 255. On Linux/UNIX/*BSD
+see <code>/usr/share/X11/rgb.txt</code> for the correspondance with
+color names. <br>
+PRINT modifier: <code>INK n</code> Same as standalone instruction, but
+the efects remains only until the actual PRINT ends.</dd>
+
+<dt>INKEY</dt>
+<dd><code>INKEY(code) </code>  Reports whether the key whose code
+    is <code>code</code> are being
+    pressed. In Blassic, performs the same function in a graphic
+  window. INKEY returns -1 if the key is not pressed, 0 if the key is
+    pressed, 32 if the key is pressed together with the Shift key,
+    128 if the key is pressed together with the Control key. </dd> 
+<table align="center" caption="the table of codes used by INKEY" border="1">
+  <th><td>the table of codes used by INKEY (for a Spanish
+      keyboard) </td></th>
+<tr> <td><tt>code</tt> </td><td> Key </td>   
+<tr><td> 0</td><td> Up</td></tr>
+<tr><td>    1 </td><td>Right</td></tr>
+<tr><td>    2 </td><td>Down</td></tr>
+<tr><td>    3 </td><td>Numeric 9</td></tr>
+<tr><td>    4 </td><td>Numeric 6</td></tr>
+<tr><td>    5 </td><td>Numeric 3</td></tr>
+<tr><td>    6 </td><td>Intro</td></tr>
+<tr><td>    7 </td><td>Numeric .</td></tr>
+<tr><td>    8 </td><td>Left</td></tr>
+<tr><td>    9 </td><td>Copy</td></tr>
+<tr><td>   10 </td><td>Numeric 7</td></tr>
+<tr><td>   11 </td><td>Numeric 8</td></tr>
+<tr><td>   12 </td><td>Numeric 5</td></tr>
+<tr><td>   13 </td><td>Numeric 1</td></tr>
+<tr><td>   14 </td><td>Numeric 2</td></tr>
+<tr><td>   15 </td><td>Numeric 0</td></tr>
+<tr><td>   16 </td><td>Delete</td></tr>
+<tr><td>   17 </td><td>+</td></tr>
+<tr><td>   18 </td><td>Return</td></tr>
+<tr><td>   19</td><td></td></tr>
+<tr><td>   20 </td><td>Numeric 4</td></tr>
+<tr><td>   21 </td><td>Shift</td></tr>
+<tr><td>   22 </td><td>\ in the CPC, <></td></tr>
+<tr><td>   23 </td><td>Control</td></tr>
+<tr><td>   24</td><td>=</td></tr>
+<tr><td>   25</td><td> '</td></tr>
+<tr><td>   26</td><td> `[</td></tr>
+<tr><td>   27</td><td> P</td></tr>
+<tr><td>   28 </td><td>'{</td></tr>
+<tr><td>   29</td><td></td></tr>
+<tr><td>   30 </td><td>-</td></tr>
+<tr><td>   31 </td><td>.</td></tr>
+<tr><td>   32 </td><td>0</td></tr>
+<tr><td>   33 </td><td>9</td></tr>
+<tr><td>   34 </td><td>O</td></tr>
+<tr><td>   35 </td><td>I</td></tr>
+<tr><td>  36 </td><td>L</td></tr>
+<tr><td>  37 </td><td>K</td></tr>
+<tr><td>  38 </td><td>M</td></tr>
+<tr><td>  39 </td><td>,</td></tr>
+<tr><td>  40 </td><td>8</td></tr>
+<tr><td>  41 </td><td>7</td></tr>
+<tr><td>  42 </td><td>U</td></tr>
+<tr><td>  43 </td><td>Y</td></tr>
+<tr><td>  44 </td><td>H</td></tr>
+<tr><td>  45 </td><td>J</td></tr>
+<tr><td>  46 </td><td>N</td></tr>
+<tr><td>  47 </td><td>space</td></tr>
+<tr><td>  48 </td><td>6</td></tr>
+<tr><td>  49 </td><td>5</td></tr>
+<tr><td>  50 </td><td>R</td></tr>
+<tr><td>  51 </td><td>T</td></tr>
+<tr><td>  52 </td><td>G</td></tr>
+<tr><td>  53 </td><td>F</td></tr>
+<tr><td>  54 </td><td>B</td></tr>
+<tr><td>  55 </td><td>V</td></tr>
+<tr><td>  56 </td><td>4</td></tr>
+<tr><td>  57 </td><td>3</td></tr>
+<tr><td>  57 </td><td>3</td></tr>
+<tr><td>  58 </td><td>E</td></tr>
+<tr><td>  59 </td><td>W</td></tr>
+<tr><td>  60 </td><td>S</td></tr>
+<tr><td>  61 </td><td>D</td></tr>
+<tr><td>  62 </td><td>C</td></tr>
+<tr><td>  63 </td><td>X</td></tr>
+<tr><td>  64 </td><td>1</td></tr>
+<tr><td>  65 </td><td>2</td></tr>
+<tr><td>  66 </td><td>Escape</td></tr>
+<tr><td>  67 </td><td>Q</td></tr>
+<tr><td>  68 </td><td>Tab</td></tr>
+<tr><td>  69 </td><td>A</td></tr>
+<tr><td>  70 </td><td>Caps lock</td></tr>
+<tr><td>  71 </td><td>Z</td></tr>
+<tr><td>  72 </td><td>joystick on Amstrad CPC, unassigned in Blassic</td></tr>
+<tr><td>  73 </td><td>joystick on Amstrad CPC, unassigned in Blassic</td></tr>
+<tr><td>  74 </td><td>joystick on Amstrad CPC, unassigned in Blassic</td></tr>
+<tr><td>  75 </td><td>joystick on Amstrad CPC, unassigned in Blassic </td></tr>
+<tr><td>  76 </td><td>joystick on Amstrad CPC, unassigned in Blassic</td></tr>
+<tr><td>  77 </td><td>joystick on Amstrad CPC, unassigned in Blassic </td></tr>
+<tr><td>  78 </td><td>Inexistent</td></tr>
+<tr><td>  79 </td><td>Backspace </td></tr>
+</table> 
+
+<dt>INKEY$</dt>
+<dd><code>INKEY$()</code> reads a single character typed at
+  the terminal and returns it in a string. In the
+  absence of input from the user, the program continues,
+  with <code>INKEY$</code> returning an empty string. There are a few
+  special cases where <code>INKEY$</code> returns multicharacter strings.</dd>
+<table align="center" border="1">
+  <tr><td>Key</td> <td>String returned by INKEY$()</td> </tr> 
+ <tr> <td> function keys F1 to F12 </td><td> "F1" to "F12"</td> </tr>
+  <tr> <td>PgUp</td> <td>"PAGEUP"</td> </tr>
+  <tr> <td>PgDn</td> <td>"PAGEDOWN"</td></tr>
+  <tr> <td>End</td> <td>"END"</td></tr>
+  <tr> <td>Home</td> <td>"HOME"</td></tr>
+    <tr> <td>Insert</td> <td>"INSERT"</td></tr>
+  <tr> <td>Delete</td> <td>"DELETE"</td></tr>
+  <tr> <td>Arrow left</td> <td>"LEFT"</td></tr>
+  <tr> <td>Arrow right</td> <td>"RIGHT"</td></tr>
+  <tr> <td>Arrow up</td> <td>"UP"</td></tr>
+  <tr> <td>Arrow down</td> <td>"DOWN"</td></tr>
+  <tr> <td>In graphical mode, left button of the mouse
+      pressed</td> <td>"CLICK"</td></tr>
+  <tr> <td>In graphical mode, right button of the mouse
+      pressed</td> <td>"SCLICK"</td></tr>
+  <tr> <td>In graphical mode, left button of the mouse
+      released</td> <td>"RELEASE"</td></tr>
+  <tr> <td>In graphical mode, right button of the mouse
+      released</td> <td>"SRELEASE"</td></tr>
+</table> 
+
+<dt>INPUT</dt>
+<dd><code>INPUT "[prompt]" variable1,variable2,...</code> displays the
+  optional text "prompt" and waits for an input from the terminal for
+  the values of <code>variable1,variable2,...</code>. The user must
+  separate values by commas or by entering newlines. <br>  
+<code>INPUT #n,variable1,variable2,...</code> reads the value
+of <code>variable1,variable2,...</code> from the file associated with
+channel <code>n</code> by an <code>OPEN</code> command. </dd>
+
+<dt>INPUT$</dt>
+<dd>Function. <code>INPUT$(n)</code> waits until the user
+  enters <tt>n</tt> characters from the keyboard, and returns a
+  string containing the <tt>n</tt> characters. The characters entered
+  by the users are not echoed on the screen, and can be control
+  characters. For instance, if after an
+  instruction <code>A$=INPUT$(5)</code> the user types 5 times the
+  RETURN key, the string <code>A$</code> will contain 5 newline
+  control characters. </dd>
+
+<dt>INSTR</dt>
+<dd>Function. <code>INSTR ( [start_pos , ] searched_string$,
+	string_to_find$)</code> Returns the position of the first
+	occurrence of sting_to_find$ in searched_string$, or 0 if
+	not present.The position at wich to start can be specified
+	as start_pos.</dd>
+
+<!--- integer part int(-1.5)=-2 --->
+<dt>INT</dt>
+<dd>Function. <code>INT(x)</code> returns the integer part of x
+  defined as the largest integer smaller or equal to
+  x. <code>INT(x)&lt;=x &lt; INT(x)+1</code>. Beware, with such
+  definition, <code>INT(-1.1)=-2</code>   </dd>
+
+<dt>INVERSE</dt>
+<dd><code>INVERSE 1</code> turns on reverse video. The background
+  color and the text color are then swapped.
+<code>INVERSE 0</code> cancels reverse video. </dd>
+
+<a name="j"></a>
+
+<a name="k"></a>
+
+<dt>KILL</dt>
+<dd>Delete a file.</dd>
+
+<a name="l"></a>
+
+<dt>LABEL</dt>
+<dd><code>LABEL identifier</code> Define a label in the program, then
+instructions that normally uses a line number as parameter, such as
+GOTO, can use the identifier instead. LABEL must be the first instruction
+in a line, otherwise is ignored.</dd>
+
+<dt>LCASE$</dt>
+<dd>Same as LOWER$</dd>
+
+<dt>LEFT$</dt>
+<dd>Function. <code>LEFT$ (string$, n)</code> Returns the first n characters
+from string$, or string$ if n is greater than LEN(string$).</dd>
+
+<dt>LEN</dt>
+<dd>Function. <code>LEN (string$)</code> return the length of the string.<br>
+Note for C programmers: The total length of the string is returned, including
+possible NUL characters contained.</dd>
+
+<dt>LET</dt>
+<dd><code>LET N=6.02E23</code>
+  Optional instruction for compatibility with Dartmouth BASIC, used
+  for variable affectation. Equivalent to the simpler
+  form <tt>N=6.02E23</tt>. </dd>
+
+<dt>LINE</dt>
+<dd><code>LINE INPUT a$</code> allows to enter a string containing
+  commas. INPUT would truncate at the first comma.</dd>
+<dd><code>LINE (x1,y1)-(x2,y2),col[,bf]</code> without the optional
+  parameter <tt>bf</tt> draws a line of
+  color <tt>col</tt> from the
+  point of coordinates <tt>x1,y1</tt>
+  to the point of coordinates<tt> x2,y2</tt>. With the optional
+  parameter, draws a rectangle with corners at <tt>x1,y1</tt> and <tt>
+  x2,y2</tt> filling it with the color <tt>col</tt>. 
+  
+  . 
+
+</dd>
+<dt>LIST</dt>
+<dd>shows a listing of the program currently in memory. </dd>
+<dd><code> LIST [n1][-n2] </code> only lists the line <tt>n1</tt>, or
+  if the parameter <tt>n2</tt> is present lists the lines
+  between <tt>n1</tt> and <tt>n2</tt>. 
+</dd> 
+<dt>LLIST</dt>
+<dd>Same as LIST but the default channel is directed to the printer
+output.</dd>
+
+<dt>LOAD</dt>
+<dd><code>LOAD "program"</code> Load a blassic program. If program is
+not found program.blc and program.bas are tried.<br>
+<code>LOAD "filename", var$</code> Load a file into a string var.<br>
+<code>LOAD "filename", address [, size]</code> Load a file in the address
+of memory specified. If size is given loads only that size, otherwise the
+entire file.
+</dd>
+
+<dt>LOC</dt>
+<dd>
+Function. Returns the current position in the channel number specified,
+0 if no read or write operation has been done yet, that must be a file
+opened in random mode.
+</dd>
+
+<dt>LOCAL</dt>
+<dd><code> LOCAL variable list</code> declares the variables in the
+  list to be local variables of the subroutine. If a variable of the
+  main program has the same name as a variable in the list, the local
+  variable will be modified in the subprogram, the the variable in
+  the main program is unaffected when the subprogram
+  returns. Using <code>LOCAL</code> outside a subprogram generates an
+  error.  </dd> 
+
+<dt>LOCATE</dt>
+<dd><code>LOCATE [ #channel , ] a, b</code> Move the cursor to the position
+specified with the coordinates a, b. The screen origin is 1, 1. Channel must
+be a graphics window in graphics mode or the console output in text mode, if
+omitted channel 0 is used. The order of the coordinates is dependant of the
+  system variable Flags1, by default or with options
+  <tt>--appleII, --gwbasic, --spectrum</tt>
+  Microsoft style (row, col) is used. With option<tt> --cpc</tt>, Amstrad style (col,row) is used instead. </dd>
+
+<dt>LOF</dt>
+<dd>
+Function. Returns the length of the file associated with the channel
+number specified.
+</dd>
+
+<dt>LOG</dt>
+<dd>Function. Returns the natural logarithm of the argument.</dd>
+
+<dt>LOG10</dt>
+<dd>Function. Returns the decimal logarithm of the argument.</dd>
+
+<dt>LOWER$</dt>
+<dd>Function. Returns the string argument converted to lower case.</dd>
+
+<dt>LPRINT</dt>
+<dd>Same as PRINT but the default channel is directed to the printer
+output.</dd>
+
+<dt>LSET</dt>
+<dd><code>LSET field-variable=string</code> Store <code>string</code>
+  data in random access file
+  buffer<code>field-variable</code> left-justified.
+  Numerical data must be converted using
+  <code>MKI$,MKS$</code>or <code>MKD$</code> according to their type. </dd>
+
+<dt>LTRIM$</dt>
+<dd>Function. Left trim. Returns the string argument without possible
+initial spaces.</dd>
+
+<a name="m"></a>
+
+<dt>MASK</dt>
+<dd><code>MASK num</code> defines a mask for drawing line segments and
+  circle/ellipses. 
+  When <code>num</code> is 255 (default), solid lines are drawn. In the other
+  cases, <code>num=bit1+2*bit2+4*bit3+8*bit4+16*bit5+32*bit6+64*bit7+128*bit8</code>
+  with <code>bitn=0,1</code>. When <code>bitn=0</code> pixels
+  number <code>n+8*m</code> (measured from the origin of the segment)
+  of the line segment are not drawn, when <code>bitn=1</code> the
+  pixels are drawn. For example, after <code>MASK 15</code> dashed
+  lines are drawn and after <code>MASK 85</code> dotted lines are drawn.   
+  <code>PAINT</code> is not affected by <code>MASK</code>. 
+</dd>
+
+<dt>MAX</dt>
+<dd>Function. <code>MAX (list of numeric expresssions)</code> Returns the
+maximum of the list.</dd>
+
+<dt>MID$</dt>
+<dd>Function: <code>MID$ (string$, pos [ , length ] )</code> Returns the
+substring of string$ that begins at pos and has length characters or to
+the end of string$ if length is not specified or is too long.<br>
+Instruction: <code>MID$ (string$, pos [, length] )= stringexpr$</code>
+Replaces the substring of string$ specified as in MID$ function with
+stringexpr$.</dd>
+
+<dt>MIN</dt>
+<dd>Function. <code>MIN (list of numeric expressions)</code> Returns the
+minimum value of the list.</dd>
+
+<dt>MKD$</dt>
+<dd>Function <code>MKD$(variable)</code> converts
+  double precision floating-point variable into an 8 bytes string suitable for writing to a
+  random access file.</dd>
+
+<dt>MKDIR</dt>
+<dd>Create a directory.</dd>
+
+<dt>MKDMBF$</dt>
+<dd>Same as MKD, but the output string is in Microsoft Binary Format.</dd>
+
+<dt>MKI$</dt>
+<dd>Function <code>MKI$(integer-variable)</code> converts
+  integer-variable into a 2 bytes string suitable for writing to a
+  random access file. </dd>
+
+<dt>MKL$</dt>
+<dd>Function. <code>MKL$(long-variable)</code> Converts a long
+  integer variable into a 4 byte string suitable for writing to a
+  random access file. </dd>
+
+<dt>MKS$</dt>
+<dd>Function <code>MKS$(float-variable)</code> converts
+  single precision floating-point variable into a 4 bytes string suitable for writing to a
+  random access file.</dd>
+
+<dt>MKSMBF$</dt>
+<dd>Same as MKS$ but output in Microsoft Binary Format format. </dd>
+
+<dt>MOD</dt>
+<dd>Operator. <code>a MOD b</code> returns the remainder of a / b.</dd>
+
+<dt>MODE</dt>
+<dd>Selects graphics mode.<br>
+<code> MODE 0</code> is text mode <br> 
+ <code> MODE 1</code> selects 320x200 with 16 colors. <br>
+ <code> MODE 2</code> selects 640x200 with 16 colors. <br>
+ <code> MODE 10</code> selects 640x492 with 16 colors. <br>
+ <code> MODE 11</code> selects 800x600 with 16 colors. <br>
+ <code> MODE "spectrum" </code> selects 256x192 with 16 colors. <br>
+ <code> MODE "cpc0"</code> selects 160x200 with 16 colors.</br>
+ <code> MODE "cpc1"</code> selects 320x200 with 16 colors. <br>
+ <code> MODE "cpc2"</code> selects 640x200 with 16 colors. <br>
+ <code> MODE "pcw" </code>  selects 720x296, with 16 colors.</br> 
+ <code> MODE "pcw2" </code>  selects 720x248, with 16 colors.</br>
+ The number of characters per column is the number of pixels in the
+ vertical dimension divided by 8, and  the number of characters per
+ line is the number of pixels in the horizontal dimension divided by
+ 8. In <code>MODE 11</code> one has 75 lines of 100 characters. 
+<!--  
+Only with blassic 0.11, not 0.10
+<code> MODE "msxsc2" </code>  selects 256x192, with 16 colors.</br>
+  <code> MODE "msxscz2" </code>  selects 512x384, with 30 colors. The
+  colors can be redefined using <code> INK</code> </br>
+  <code> MODE "msxscz2" </code>  selects 1024x768, with 60 colors. The
+        colors can be redefined using <code> INK</code> </br> 
+---------------> 
+</dd> 
+
+<dt>MOVE</dt>
+<dd><code>MOVE x,y </code> moves the cursor to
+  coordinates <code>x,y</code>  </dd>
+
+<dt>MOVER</dt>
+<dd><code>MOVER dx,dy</code> moves the cursor from its current
+  position <code>x,y</code> to <code>x+dx,y+dy</code>.</dd>
+
+<a name="n"></a>
+
+<dt>NAME</dt>
+<dd><code>NAME file1$ AS file2$</code> Renames the file named file1$ as
+file2$.</dd>
+
+<dt>NEW</dt>
+<dd><code>NEW</code> erases the current program in memory. The
+  operation is not reversible.</dd>
+
+<dt>NEXT</dt>
+<dd>Marks the end of a <code>FOR/NEXT</code> loop.</dd>
+
+<dt>NOT</dt>
+<dd>Operator. Return the binary not of the argument taken as integer.</dd>
+
+<a name="o"></a>
+
+<dt>OCT$</dt>
+<dd>Function. <code>OCT$ (number [ , width ] )</code> Returns the octal
+representation of number as string. If width is specified and is too great
+the result will be filled with leading zeros, if is too small the result
+is NOT shortened.</dd>
+
+<dt>ON</dt>
+<dd>See ON BREAK, ON ERROR GOTO, ON ... GOTO and ON ... GOSUB.</dd>
+
+<dt>ON BREAK</dt>
+<dd><code>ON BREAK CONT</code> Cancel the effect of ctrl-c of stopping the
+program.<br>
+<code>ON BREAK GOSUB n</code> When ctrl-c is pressed the program whill jump
+to the subroutine specified. n can be a line number or a label.<br>
+<code>ON BREAK STOP</code> Disables the effect of ON BREAK CONT and ON BREAK
+GOSUB, ctrl-c will interrupt the program.</dd>
+
+<dt>ON ERROR GOTO</dt>
+<dd><code>ON ERROR GOTO n</code> Jumps to the specified line when an error
+is detected in the program. n can be a line number or a label. See RESUME,
+ERR, ERL.</dd>
+
+<dt>ON ... GOTO</dt>
+<dd><code> ON variable GOTO line1, line2,... </code> jumps to
+  the first line number (or label) <code>line1</code>
+  when <code>variable=1</code>, to the second line 
+  number (or label) <code>line2</code>
+   when <code>variable=2</code> etc... </dd>
+
+<dt>ON ... GOSUB</dt>
+<dd><code> ON variable GOSUB line1, line2,... </code> calls the
+  subprogram starting at  
+  the first line number (or label) <code>line1</code>
+  when <code>variable=1</code>, the one starting at the second line 
+  number (or label) <code>line2</code>
+   when <code>variable=2</code> etc... After the subprogram returns,
+  execution resumes at the following instruction. </dd>
+
+<dt>OPEN</dt>
+<dd><code> OPEN ["filename"|ERROR] FOR
+    [INPUT|OUTPUT|APPEND|RANDOM|LPRINT] AS #n [LEN=m] </code> opens the file
+  named "filename" or standard error and associates it with the channel n.
+  with options INPUT,OUTPUT,APPEND the file is opened for  sequential
+    access and LEN is not necessary.<br> 
+  with option  INPUT, the file is opened read-only.<br>
+  with option OUTPUT, the content of the file is erased and the file
+  is opened for writing.<br>
+  with option APPEND, the file is opened for writing, but instead of
+  erasing the content of the file, the new data is appended.<br> 
+  with option RANDOM, the file is opened in random access mode. The
+  parameter LEN is required to indicate the length of the records.<br>
+  <code> OPEN "mode",#n,"filename"[,record-length]</code> older, more
+  concise syntax used in Microsoft BASIC for CP/M. "mode" can be<br>
+  "I" to open for reading only<br>
+  "O" to open for writing. If the file exists, it is overwritten.<br>
+  "A" to open for writing. If the file exists, new content is
+  appended.<br>
+  "R" to open in random access mode. The
+  parameter <code>record-length</code> is required to indicate record
+  length.   
+</dd>
+
+
+<dt>OR</dt>
+<dd>
+Operator. Does a integer or logical (depending on the state of the system
+flags) binary or between its arguments.
+</dd>
+<!--Locomotive BASIC command --> 
+<dt>ORIGIN</dt>
+<dd><code>ORIGIN x,y[,l,r,t,b]</code>
+The command defines the origin ('world reference point') for the
+  graphics coordinate system.<br>
+  |x,y| are the the new coordinates for the 'world reference '.<br> 
+    |l,r,t,b| are optional and set the borders for the new graphical
+    window (works in the same way like the |WINDOW| command for a text
+    window). l,r,t,b means left, right, tob and bottom coordinates.
+
+</dd>
+
+<dt>OSFAMILY$</dt>
+<dd>Function without parameters. Returns the type of the operating system
+under which Blassic is used. Actually only two familys are defined,
+&quot;windows&quot; and &quot;unix&quot;. The value will be unix under
+Windows if the version of Blassic was compiled with Cygwin.</dd>
+
+<dt>OSNAME$</dt>
+<dd>Function without parameters. Returns the name of the operating system
+under wich Blassic is used. The value will be &quot;Windows&quot; under
+Windows (except if compiled under Cygwin) and the value returned from a
+<i>uname</i> system call otherwise.</dd>
+<!--- used with OPEN --->
+<dt>OUTPUT</dt>
+<dd>As a mode for <tt>OPEN</tt>, indicates that the file is opened
+  for writing. When the file exists, its content will be erased,
+  and the data written
+  to the file will replace the old data. To add data to a file
+  use <tt>APPEND</tt> </dd>
+<dd>Not documented yet.</dd>
+
+<a name="p"></a>
+
+<dt>PAINT</dt>				
+<dd><code> PAINT (x,y), a, b </code> Spreads the color number a,
+  starting from the coordinates (x,y) until an edge of color b is
+  encountered.   </dt>
+
+<dt>PAPER</dt>
+<dd><code>PAPER i</code> Selects the background color number i for
+  the text typed after the command paper. After a <code>CLS</code>, the selected
+  background color becomes the background color of the entire window. </dd>
+
+<dt>PAUSE</dt>
+<dd><code> PAUSE n </code> </dd>
+
+<dt>PEEK</dt>
+<dd>Function. <code>PEEK(n)</code> returns the byte (8 bits) at memory address
+  <code>n</code>. Works in 32-bit Intel, but
+  causes a segmentation fault on 64-bit Intel with the
+  master branch. The 64-bit branch uses 64-bit integer and does not
+  segfaults when using PEEK. </dd>
+
+<dt>PEEK16</dt>
+<dd>Function. <code>PEEK16(n)</code> returns the 2-byte word (16 bits)
+  starting at memory address
+  <code>n</code>.</dd>
+
+<dt>PEEK32</dt>
+<dd>Function. <code>PEEK32(n)</code> returns the 4-byte word (32 bits)
+  starting at memory address
+  <code>n</code>.</dd>
+<!--- selects color of text --->
+<dt>PEN</dt>
+<dd><code>PEN i</code> selects the foreground color number i for the
+  text typed after the command pen. Effect after a CLS (if any) not
+  documented. </dd>
+
+<dt>PI</dt>
+<dd>Function without parameters. Returns the value of the pi number.</dd>
+
+<dt>PLEASE</dt>
+<dd>Undocumented instruction, please do not use.</dd>
+
+<dt>PLOT</dt>
+<dd><code> PLOT x,y</code> position the graphics cursor at abcissae x
+  and ordinate y. 0,0 is the upper left corner of the graphics
+  window. </dd>
+<!--- relative coordinates --->
+<dt>PLOTR</dt>
+<dd><code> PLOTR x,y</code> position the graphics cursor at current
+  abcissae plus x
+  and current ordinate plus y.</dd>
+
+<dt>POKE</dt>
+<dd><code> POKE n,m</code> Gives the byte at memory
+  address <tt>n</tt> the value 0&le;<tt>m</tt>&le;255. Use with caution.</dd>
+
+<dt>POKE16</dt>
+<dd><code> POKE16 n,m</code> Gives the 2-byte word at memory
+  address <tt>n</tt> the value 0&le;<tt>m</tt>&le;65535. Use with caution.</dd>
+
+<dt>POKE32</dt>
+<dd>><code> POKE16 n,m</code> Gives the 4-byte word at memory
+  address <tt>n</tt> the value 0&le;<tt>m</tt>&le;2^32-1. Use with caution.</dd></dd>
+
+<dt>POP</dt>
+<dd>Discard the last value of the GOSUB/RETURN stack. Variables defined as
+LOCAL are restored to their previous values.</dd>
+<!--- Unixism --->  
+<dt>POPEN</dt>
+<dd><code> POPEN command$ FOR INPUT/OUTPUT AS #channel_number</code> Opens a
+  Unix pipe with the command defined in string command$. In the case
+  of <code>INPUT</code> the output of the command will be read by the
+  blassic interpreter, while in the case of <code>OUTPUT</code>,
+  the command will
+  read the output coming from the blassic interpreter. In both cases,
+  the pipe is read/written as if it was a file opened with the
+  channel number indicated by the integer <code>channel_number</code>.   </dd>
+
+<dt>POS</dt>
+<dd>Function. <code>POS (#channel)</code> return the horizontal position
+of the cursor in that channel. Only screen channels are allowed.</dt>
+
+<dt>PRINT</dt>
+<dd><code> PRINT variable </code> displays the value
+  of <code>variable</code> on the screen followed by a linefeed.</dd>
+<dd><code> PRINT variable; </code> displays the value
+  of <code>variable</code> on the screen without linefeed.</dd>
+<dd><code> PRINT variable1;variable2 </code> displays the values
+  of <code>variable1</code>  <code>variable1</code> on the same line
+  followed by linefeed.  </dd>
+<dd><code> PRINT variable1, variable2 </code> displays the values
+  of <code>variable1</code>  <code>variable1</code> on the same line
+  separated by a number of spaces (12 to 14 depending on options) 
+  followed by linefeed.  </dd>
+<dd> <code> PRINT #n,variable </code> write the content
+  of <code>variable</code> to the file associated with
+  channel <code>n</code>.
+  </dd> 
+
+<dt>PROGRAMARG$</dt>
+<dd>Function: <code>PROGRAMARG$ (n)</code> returns the n-th command line
+parameter with which blassic is called, excluding the blassic command and the
+program name, or the empty string if there is no sufficient parameters.<br>
+Instruction: <code>PROGRAMARG$ arg1$ [, args$ ....]</code> Establishes the
+return values of the PROGRAMARG$ function to the args specified. Useful when
+debugging.</dd>
+
+<dt>PROGRAMPTR</dt>
+<dd>Funtion without parameters. Returns the address of the program memory
+area, or 0 if there is no program. See the autoview.bas and automod.bas
+sample programs.</dd>
+
+<dt>PULL</dt>
+<dd>Drops the last element of the REPEAT / UNTIL stack.</dd>
+
+<dt>PULL FOR</dt>
+<dd>Drops the last element of the FOR / NEXT stack.</dd>
+
+<dt>PULL GOSUB</dt>
+<dd>Same as POP.</dd>
+
+<dt>PULL REPEAT</dt>
+<dd>Same as PULL.</dd>
+
+<dt>PULL WHILE</dt>
+<dd>Drops the last element of the WHILE / WEND stack.</dd>
+
+<dt>PUT</dt>
+<dd><code>PUT #n, i</code>  writes the i-th record in a file opened in random access
+  mode associated with channel n. The previous value of the record is
+  erased.<br>
+<code>PUT (X,Y),A,MODE </code> puts the image stored in A at position
+(X,Y) with mode MODE </dd> 
+
+<a name="q"></a>
+
+<a name="r"></a>
+
+<dt>RAD</dt>
+<dd>Set trigonometric mode to radians.</dd>
+
+<dt>RANDOM</dt>
+<dd>As a mode to OPEN, indicates that the file is opened for random
+  access. See OPEN, FIELD, MK[I-S], CV[I-S] for precisions. </dd>
+
+<dt>RANDOMIZE</dt>
+<dd><code>RANDOMIZE n</code> uses n as the seed for the random number
+  generator. </dd>
+
+<dt>READ</dt>
+<dd><code>
+    READ variable
+  </code>
+Gets the next data item (from DATA commands), stores it in the given
+    variable and moves to the next item.
+  </dd>
+
+<dt>REAL</dt>
+<dd>See DEF REAL.</dd>
+
+<dt>REGEXP_INSTR</dt>
+<dd>
+Function:
+<code>REGEXP_INSTR ( [ pos , ] searched$, regexp$ [ , flags] )</code>
+Returns the position of the first match of the regexp$ regular expression
+in searched$, or 0 if no match. If pos is specified the regexp matching
+begins at that position. For the values of the flag parameter see
+REGEXP_REPLACE$.
+</dd>
+
+<dt>REGEXP_REPLACE$</dt>
+<dd>
+Function:
+<code>REGEXP_REPLACE$ ( [ pos, ] searched$, regexp$, rep [, flags] )</code>
+Returns the string searched$ with the matches of the regular expression
+regexp$ replaced by the rep parameter, that can be a string or a FN. In the
+former case, the $n contained in the string are replaced by the
+subexpressions matched, in the later the FN function is called with the
+subexpressions as arguments. The bits on the flag affect the result in
+the follwing mode: bit 0 sets nocase mode, bit 1 set nobegin mode (the
+string is treated as no located as the begin in a line), bit 2 set noend
+mode (the string is treated as no located at the end of a line), bit 3
+sets the newline mode (the 'any charater' wildcards not match a newline
+character) and the other bits are reserved for future use, must be 0.
+If pos is specified the regexp matching begins at that position.
+</dd>
+
+<dt>REM</dt>
+<dd>Remark. The rest of the line is ignored.</dd>
+
+<dt>RENUM</dt>
+<dd>Renumbers the code so that line numbers are all multiples of 10. </dd>
+
+<dt>REPEAT</dt>
+<dd>Marks the beginning of a REPEAT/UNTIL loop. </dd>
+
+<dt>RESTORE</dt>
+<dd><code>RESTORE line-number</code> resets the DATA pointer
+  at <code>line-number</code>. The following READ command will
+  get its data from the DATA statement at <code>line-number</code>. </dd>
+
+<dt>RESUME</dt>
+<dd><code>RESUME [NEXT | n]</code> On an ON ERROR GOTO routine, returns to
+the statement that produced the error, to the next statement, or to the
+postion specified by n, that can be a number line or a label.</dd>
+
+<dt>RETURN</dt>
+<dd>Continues execition after the point of the last GOSUB. Variables defined
+with LOCAL are restored to his previous values.</dd>
+
+<dt>RIGHT$</dt>
+<dd>Function. <code>RIGHT$ (string$, n)</code> Returns the last n charaters
+from string$, or string$ if n is greater than LEN(string$).</dd>
+
+<dt>RINSTR</dt>
+<dd>Function. Like INSTR but from end ot string to beginning.</dd>
+
+<dt>RMDIR</dt>
+<dd>Deletes a directory</dd>
+
+<dt>RND</dt>
+<dd>Function. <code>RND(1)</code> Returns a random number between 0
+  and 1. See <code>RANDOMIZE</code> for initialization of the seed. </dd>
+<!--- rounds to nearest integer --->
+<dt>ROUND</dt>
+<dd>Function. <code>ROUND(real-number,integer)</code>
+  Rounds <code>real-number</code> argument to <code>integer</code>
+  decimal places when <code>integer</code> is
+  positive. If  <code>integer</code> is
+  negative,  <code>real-number</code> is rounded to give an
+    absolute integer with <code>-integer</code> zeros before the
+  decimal point.  </dd>
+
+<dt>RSET</dt>
+<dd><code>RSET field-variable=string</code> Store <code>string</code>
+  data in a random file buffer <code>field-variable</code> right
+  justified. Numerical data must be converted
+  with <code>MKI$,MKS$</code> or <code>MKD$</code> 
+  depending on their type. Data are written with <code>PUT</code>. </dd>
+
+<dt>RTRIM$</dt>
+<dd>Function. Right trim. Returns the strig argument without possible
+final spaces.</dd>
+
+<dt>RUN</dt>
+<dd>Starts program execution.</dd>
+
+<a name="s"></a>
+
+<dt>SAVE</dt>
+<dd><code>SAVE "program"</code> Saves the program in Blassic binary format.
+The recommended extension is .blc, but is not added automatically.<br>
+<code>SAVE "program", A</code> Saves the program in text format.
+The recommended extension is .bas but is not added automatically.<br>
+<code>SAVE "filename", B, var$</code> Save the content of the string var$
+into filename.<br>
+<code>SAVE "filename", B, address, length</code> Save length bytes of memory
+beginning at address.
+</dd>
+
+<dt>SCREEN$</dt>
+<dd>Function <code>SCREEN$(y,x)</code> In graphics mode contains the
+  character at position x,y. The top left corner of the screen has
+  coordinates 0,0. If there is no character, the function returns
+  chr$(12). </dd>
+
+<dt>SCROLL</dt>
+<dd>
+<code>SCROLL [#window ,] [n]</code> Scroll the graphics window specified
+by window, 0 by default, the number of lines specified by n, 1 by default.
+If n is positive scrolls up and place the cursor at the beginning of the
+last line, if negative scrolls down and place the cursor at the beginning
+of the screen.
+</dd>
+
+<dt>SET_TITLE</dt>
+<dd>Set the title of the window. In graphics mode, the title of the graphics
+window is affected. In text mode, in windows the console window is affected,
+in unix if the terminal type is xterm, aixterm, dtterm, iris-ansi, sun-cmd
+or hpterm the title of the terminal window is affected, otherwise the
+instruction has no effect.</dd>
+
+<dt>SGN</dt>
+<dd>Function. Returns -1, 0 or 1 if the argument is negative, 0 or positive,
+respectively.</dd>
+
+<dt>SHELL</dt>
+<dd><code>SHELL command$</code> Executes command$ as a shell command.</dd>
+
+<dt>SIN</dt>
+<dd>Function. Returns the sine value or the argument.</dd>
+
+<dt>SINH</dt>
+<dd>Function. Returns the hyperbolic sine value or the argument.</dd>
+
+<dt>SOCKET</dt>
+<dd><code>SOCKET "host", port AS #channel</code> Open a socket and connect it
+to the host specified using the tcp port number, and associates it to the
+input/output channel.</dd>
+
+<dt>SPC</dt>
+<dd>PRINT modifier. Prints the number of spaces indicated by the argument.</dd>
+
+<dt>SPACE$</dt>
+<dd>Funtion. Returns a string composed of the number of spaces indicated
+by the argument.</dd>
+
+<dt>SQR</dt>
+<dd>Function. Returns the square root of the argument.</dd>
+
+<dt>STEP</dt>
+<dd>Indicates the increment in a <code>FOR/NEXT</code> loop.</dd>
+
+<dt>STOP</dt>
+<dd>Stops execution. See CONT.</dd>
+
+<dt>STR</dt>
+<dd>See DEF STR.</dd>
+
+<dt>STR$</dt>
+<dd>Function <code>STR$(n)</code> converts the numerical constant or
+  the numerical variable into a string containing the decimal
+  representation of that value. </dd>
+
+<dt>STRING$</dt>
+<dd>Function <code>string$(n,c)</code> returns a string
+  of <code>n</code> characters of ASCII code <code>c</code>. </dd>
+
+<dt>SWAP</dt>
+<dd><code> SWAP a,b</code> exchanges the values of a and b.</dd>
+
+<dt>SYMBOL</dt>
+<dd><code>SYMBOL n, b1, b2, b3, b4, b5, b6, b7, b8</code>
+Define the char number n with 8 bytes of data, each bit corresponding to
+one pixel. b1 to b8 can be omitted, 0 is applied in that case. A bit
+  set to 1 means a pixel with foreground color, a bit set to zero a
+  pixel with background color. The bits are read from left to right,
+  with the least significant bit corresponding
+  to the rightmost pixel, the most significant bit to the leftmost
+  pixel. For instance, <code> SYMBOL n,255,127,63,31,15,7,3,1</code>
+  defines the character <code>n</code> as a triangle of foreground
+  color having a right angle in the upper left corner. </dd>
+
+<dt>SYMBOL AFTER</dt>
+<dd><code>SYMBOL AFTER n</code> Set the number of permissible user defined
+characters. Characteres with values from n to 255 become definables. With 0
+all chars are definables, with 256 none. All characters are reset to their
+default values.</dd>
+<!--- affects graphics --> 
+<dt>SYNCHRONIZE</dt>
+<dd><code>SYNCHRONIZE 1</code> suspends synchronization of the
+  graphical screen in the graphics modes. Graphical operation take
+  place in the video memory, but the screen is not redrawn
+  until a <code>SYNCHRONIZE 0</code> is encountered. This command is
+  useful when large areas have to be filled as the screen is not
+  redrawn while the color is spreading, thus accelerating the process. </dd>
+
+<dt>SYSTEM</dt>
+<dd><code>SYSTEM</code> Quits blassic returning to the operating system.</dd>
+
+<dt>SYSVARPTR</dt>
+<dd>Function whitout parameters. Returns the address of the system vars memory
+  area. For information on the system vars refer to
+  the<tt>sysvar.h</tt> file in the
+  sources.</dd>
+<table border="1" align="center" caption="Addresses of system variables">
+  <tr><td>Name</td><td>Position SYSVARPTR+</td><td>Length</td><td>Writable</td></tr>
+  <tr><td>GraphicsWidth</td><td>0</td><td>2</td><td>No</td></tr>
+  <tr><td>GraphicsHeight</td><td>2</td><td>2</td><td>No</td></tr>
+  <tr><td>NumArgs</td><td>4</td><td>2</td><td>No</td></tr>
+  <tr><td>VersionMajor</td><td>6</td><td>2</td><td>No</td></tr>
+  <tr><td>VersionMinor</td><td>8</td><td>2</td><td>No</td></tr>
+  <tr><td>VersionRelease</td><td>10</td><td>2</td><td>No</td></tr>
+  <tr><td>AutoInit</td><td>12</td><td>4</td><td>Yes</td></tr>
+  <tr><td>AutoInc</td><td>16</td><td>4</td><td>Yes</td></tr>
+  <tr><td>CharGen</td><td>20</td><td>4</td><td>No</td></tr>
+  <tr><td>ShellResult</td><td>24</td><td>1</td><td>No</td></tr>
+  <tr><td>TypeOfVal</td><td>25</td><td>1</td><td>Yes</td></tr>
+  <tr><td>TypeOfNextCheck</td><td>26</td><td>1</td><td>Yes</td></tr>
+<tr><td>TypeOfDimCheck</td><td>27</td><td>1</td><td>Yes</td></tr>
+  <tr><td>MaxHistory</td><td>28</td><td>2</td><td>Yes</td></tr>
+  <tr><td>Flags1</td><td>30</td><td>1</td><td>Yes</td></tr>
+<tr><td>PrinterLine</td><td>31</td><td>1</td><td>Yes</td></tr>
+<tr><td>MaxFnLevel</td><td>32</td><td>4</td><td>Yes</td></tr>
+<tr><td>DebugLevel</td><td>36</td><td>2</td><td>Yes</td></tr>
+<tr><td>Zone</td><td>38</td><td>2</td><td>Yes</td></tr>
+<tr><td>GraphRotate</td><td>40</td><td>1</td><td>Yes</td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td>TronChannel</td><td>42</td><td>2</td><td>No</td></tr>
+<tr><td>TronFlags</td><td>44</td><td>1</td><td>No</td></tr>
+<tr><td>Flags2</td><td>41</td><td>1</td><td>Yes</td></tr>
+
+</table>
+<!--- 
+        GraphicsWidth= 0,
+        GraphicsHeight= 2,
+        NumArgs= 4,
+        VersionMajor= 6,
+        VersionMinor= 8,
+        VersionRelease= 10,
+        AutoInit= 12,
+        AutoInc= 16,
+        CharGen= 20,
+        ShellResult= 24,
+
+        TypeOfVal= 25,  // 0: simple, 1: expression evluation,
+                        // else unimplemented.
+        TypeOfNextCheck= 26,    // 0: normal, else ZX-type
+        TypeOfDimCheck= 27,     // 0: cannot dim already dimensioned
+                                // 1: Silently redim
+        MaxHistory= 28, // Max size of history buffer.
+        Flags1= 30,     // Bit 0: LOCATE style. 0 Microsoft, 1 AMSTRAD CPC.
+                        // Bit 1: TAB style: 0 normal, 1 Spectrum.
+                        // Bit 2: THEN omitted: 0 is not accepted, 1 accepted.
+                        // Bit 3: space before number in PRINT, 0 No, 1 Yes.
+                        // Bit 4: initial space in STR$, 0 No, 1 Yes.
+                        // Bit 5: convert LF to CR in GET and INKEY$
+                        // Bit 6: Show debug info on certain errors.
+                        // Bit 7: Relaxed GOTO mode.
+        PrinterLine=  31,       // Type of printer line feed.
+                                // 0 LF only.
+                                // 1 CR + LF
+                                // 2 CR only.
+        MaxFnLevel= 32, // Max level of FN calls.
+        DebugLevel= 36, // Level for IF_DEBUG
+        Zone= 38,       // Size of zone for the , separator of PRINT.
+        GraphRotate= 40,        // Type of graphics rotation:
+                                // 0 no rotation.
+                                // 1 90 degrees.
+                                // Other: undefined
+        Flags2= 41,     // Bit 0: GO TO and GO SUB separated in listings.
+                        // Bit 1: if set true is positive.
+                        // Bit 2: if set logical ops are boolean.
+                        // Bit 3: if set blank lines in .bas text files
+                        //      are converted to comments.
+                        // Bits 4-7: reserved.
+        TronChannel= 42, // Last channel used for tron or tron line.
+        TronFlags= 44,  // Tron flags.
+                        // Bit 0: tron ot tron line is active.
+                        // Bit 1: tron line is active.
+                        // Bits 2-7: reserved.
+        // 45: reserved
+        EndSysVar= 46;
+
+----------> 
+<a name="t"></a>
+
+<dt>TAB</dt>
+<dd>PRINT modifier. <CODE>TAB n</code> Prints spaces until the horizontal
+postition of printing reaches n. If n is greater than the current position,
+before doing this spaces are printed until reached the end of the line if
+the current channel is a graphic window, then a line end is emitted..</dd>
+<!--- Locomotive BASIC ---> 
+<dt>TAG</dt>
+<dd><code> TAG[#n]</code> Text is printed at the current graphics
+  cursor position instead of the text cursor position. </dd>
+
+<dt>TAGOFF</dt>
+<dd><code> TAGOFF[#n]</code> Cancels the effect of TAG. Text is
+  printed at the text cursor position instead of the graphics cursor
+  position. </dd>
+
+<dt>TAN</dt>
+<dd>Function. <code>TAN(x)</code> returns the tangent of x.</dd>
+
+<dt>TANH</dt>
+<dd>Function. <code>TANH(x)</code> returns the hyperbolic tangent of x.</dd>
+
+<dt>TEST</dt>
+<dd>Function. <code>TEST (x, y)</code> moves the graphic cursor to x, y
+and returns the ink number corresponding to the color of that point.</dd>
+
+<dt>TESTR</dt>
+<dd>Function. Same as TEST but the cursor movement is relative to the
+current position.</dd>
+
+<dt>THEN</dt>
+<dd><code>IF condition THEN instructions </code> executes the BASIC
+  instructions when <code>condition</code> is
+  true. see <code>IF,ELSE</code>. </dd>
+
+<dt>TIME</dt>
+<dd>Function. Returns the number of seconds past since Jan 01, 1970
+  00:00:00 UTC (the UNIX Epoch).</dd>
+
+<dt>TIME$</dt>
+<dd>Function. Returns the current time in a string of format hh:mm:ss</dd>
+
+<dt>TO</dt>
+<dd>Used in <code>FOR/NEXT</code> loop to indicate the end of the
+  iteration. </dd>
+
+<dt>TRIM$</dt>
+<dd>Function. Returns the string argument without possible initial and final
+spaces.</dd>
+
+<dt>TROFF</dt>
+<dd>Set trace mode to off. See TRON.</dd>
+
+<dt>TRON</dt>
+<dd>Set trace mode to on and stablishes the type of trace.<br>
+<code>TRON [ LINE ] [ #channel ]</code><br>
+When the trace mode is on, information is printed about the current line
+before executing it. Whithou LINE the information printed is
+<CODE>[line-number]</code> (The [ ] are literal in this case); with LINE
+specified the entire line is printed. The information is printed in the
+channel specified, 0 if omitted.</dd>
+
+<a name="u"></a>
+
+<dt>UCASE$</dt>
+<dd>Same as LOWER$</dd>
+
+<dt>UNTIL</dt>
+<dd><code>UNTIL condition </code> Marks the end of a REPEAT/UNTIL loop. The
+  loop repeats until <code>condition</code> becomes true.  </dd>
+
+<dt>UPPER$</dt>
+<dd>Function. Returns the string argument converted to upper case.</dd>
+
+<dt>USING</dt>
+<dd><code>PRINT</code> modifier to produce formatted output.
+<code> PRINT USING format$ variable1,variable2...</code> prints the
+values of the variables according to the content of the
+string <code>format$</code>. The rules for the format string are the
+same as in Microsoft CP/M Basic 
+<ul> 
+  <li> "!" prints only the first character of the string variable
+  <li> "\[n spaces]\" prints (n+2) characters of the string variable:
+  one for each backslash and one for each of the n spaces. With only 2
+    backslashes two characters are printed.
+  <li> "&" prints the entire string
+  <li> "#" represents a digit in a numeric format. The numeric format is
+  for instance "##.###" indicating two digits before the decimal
+    point, and 3 digits after. For the digits before the decimal point,
+    if the value of
+  the variable does not have enough digits, the value is printed right
+    justified by writing spaces in the place of the missing digits.
+    If the number of digits is too large,
+  the value is printed preceded by a &percent; sign. For the digits
+  after the decimal point, is the number of digits exceeds the format,
+    rounding occurs.
+    <li> "+" before/after the "##.###" format indicates that a + or - must
+      be printed before/after to indicate the sign of the number.
+    <li> "-" after the numeric format indicates that a - sign should
+      be printed if the number is negative.
+    <li> "**" before the numeric format indicates that asterisks
+      rather than spaces should replace the missing digits.
+    <li> "$$" indicates that a $ sign must be printed to the left.
+    <li> "^^^^" following a "#.#" format as in "#.##^^^^" indicates
+    that the output should be in scientific notation 'x.xxE+nn'.    
+    <li>
+</ul>
+</dd>
+
+<dt>USR</dt>
+<dd>Function. z=USR(lib$,proc$) returns the value of the function
+  indicated in the string argument proc$ from the dynamic link library
+  the  path of which is contained in lib$. </dd>
+
+<a name="v"></a>
+
+<dt>VAL</dt>
+<dd>Function. Returns the value of the first characters of the string
+argument that are a valid number according to the syntax of Blassic
+(0 if none), or the entire string evaluated as a Blassic numeric
+expression, depending of the value of the system variable TypeOfVal.</dd>
+<!-- unclear -->
+<dt>VAL$</dt>
+<dd>Function. Returns the value of the string argument evaluated as a
+Blassic string expression.</dd>
+
+<dt>VARPTR</dt>
+<dd>Function. <code>VARPTR(a)</code> returns the memory address of
+  the variable <code>a</code>. </dd>
+
+<dt>VPOS</dt>
+<dd>Function. <code>VPOS (#chanel)</code> return the vertical position
+of the cursor in channel. Only screen channels in graphics mode are
+allowed.</dd>
+
+<a name="w"></a>
+
+<dt>WEND</dt>
+<dd><code>WEND</code> marks the end of a <code>WHILE/WEND</code>
+      loop. The lines of code between the <code>WHILE</code> and the
+      closest <code>WEND</code> instruction are executed as long as a
+      certain condition is satisfied (see <code>WHILE</code>).</dd>
+
+<dt>WIDTH</dt>
+<dd><code>WIDTH LPRINT n [, m]</code> Establishes the width of the printer
+output, when the width is exceeded a line separator is emitted (see
+the PrinterLine system variable. A value of 0 means unlimitted
+width. The value m if specified set the left margin for the printer in
+chars.</dd>
+
+<dt>WHILE</dt>
+<dd><code>WHILE condition</code> marks the beginning of
+  a <code>WHILE/WEND</code> loop that will be executed as long as the
+  condition is satisfied.</dd>
+
+<dt>WINDOW</dt>
+<dd><code> WINDOW #n, x1, x2, y1, y2 </code> Creates a
+  window <code>n</code>, with upper left corner at
+  coordinates <tt>(x1,y1)</tt> and lower right corner at
+  coordinates<tt>(x2,y2)</tt> on the graphical screen. All subsequent  <code>PEN
+    #n</code>, <code>PAPER#n</code>,<code>PRINT#n</code> instructions
+  only affect that window. </dd>
+  
+
+<dt>WINDOW SWAP</dt>
+<dd>Not documented yet.</dd>
+<!--- exchanges two windows ---> 
+<dt>WRITE</dt>
+<dd><code>WRITE string$</code> writes the content of the string variable
+  string$ surrounded with quotation marks, while <code>PRINT</code>
+  would not show quotation marks. 
+<code>WRITE num</code> writes the value of the numerical variable num
+as <code>PRINT</code> would do.
+<code>WRITE var1,var2,...,varn </code> writes the content of the
+variables var1 to varn (surrounded by quotes in the case of string
+variables), separated by commas when  <code>PRINT</code> would
+separate them with spaces. 
+</dd>
+
+<a name="x"></a>
+
+<dt>XMOUSE</dt>
+<dd>Function without parameters. Returns the x coordinate of the
+mouse position (only in graphics mode) in the coordinate system of the
+  window.</dd>
+
+<dt>XOR</dt>
+<dd>Operator. Does a integer binary xor (exclusive or)  between its
+arguments.</dd>
+
+<dt>XPOS</dt>
+<dd>Function without parameters. Returns the x coordinate of the
+graphics cursor.</dd>
+
+<a name="y"></a>
+
+<dt>YMOUSE</dt>
+<dd>Function without parameters. Returns the y coordinate of the
+mouse position (only in graphics mode) in the coordinate system of the
+  window.</dd>
+
+<dt>YPOS</dt>
+<dd>Function without parameters. Returns the y coordinate of the
+graphics cursor.</dd>
+
+<a name="z"></a>
+
+<dt>ZONE</dt>
+<dd><code>ZONE value</code> Stablishes <i>value</i> as the width of the
+zones used by the , PRINT delimiter. A value of 0 means 8 in the
+graphics window and that a tab character is used instead of spaces in
+printer and in text mode.</dd>
+
+<dt>ZX_PLOT<dt>
+<dd>
+Requires graphics mode. Mimics the PLOT instruction of the ZX-81
+Basic. <code> ZX_PLOT x,y</code> draws a 4 pixels square at
+coordinates <code>(4*x,4*y)</code>. 
+</dd>
+
+<dt>ZX_UNPLOT<dt>
+<dd>
+Mimics the UNPLOT instruction of the ZX-81 Basic.
+</dd>
+
+</dl>
+
+<p class="fin"><span>&nbsp;That's all folks!&nbsp;</span></p>
+
+</body>
+</html>
