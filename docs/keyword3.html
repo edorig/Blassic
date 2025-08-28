@@ -1249,8 +1249,12 @@ sample programs.</dd>
 <dd><code>PUT #n, i</code>  writes the i-th record in a file opened in random access
   mode associated with channel n. The previous value of the record is
   erased.<br>
-<code>PUT (X,Y),A,MODE </code> puts the image stored in A at position
-(X,Y) with mode MODE </dd> 
+<code>PUT (X,Y),A[,MODE] </code> puts the image stored in A at position
+(X,Y) optionnally with mode <tt>MODE</tt>. The keyword <tt>MODE</tt>
+can be <tt>XOR</tt> (bitwise exclusive <tt>OR</tt> with the background
+color), <tt>AND</tt>(bitwise <tt>AND</tt>),<tt>OR</tt>
+(bitwise <tt>OR</tt>) or <tt>NOT</tt>.
+</dd> 
 
 <a name="q"></a>
 

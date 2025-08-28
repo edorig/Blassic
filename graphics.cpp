@@ -855,7 +855,10 @@ static const int
 	drawmode_xor= GXxor,
 	drawmode_and= GXand,
 	drawmode_or= GXor,
-	drawmode_invert= GXinvert;
+// This simply inverts the destination  
+//	drawmode_invert= GXinvert;
+// This should invert the image   
+        drawmode_invert= GXcopyInverted; 
 
 #elif defined BLASSIC_USE_WINDOWS
 
