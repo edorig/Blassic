@@ -1,0 +1,31 @@
+<html>
+  <head>
+<title>The 64 Bit version of Blassic</title>
+</head>
+<body>
+<h1>The 64 Bit version of Blassic</h1>
+<p> <tt>Blassic</tt> was originally coded for 32-bit processors.
+  This made the commands <tt>PEEK</tt> and <tt>POKE</tt> fail on
+  64-bit machines. This caused some issues since modifying addresses
+  after <tt>SYSVARPTR</tt> caused segmentation faults. In particular,
+  changing the behavior of the <tt>LOCATE</tt> commands so that abcissa
+  comes first (as on the Amstrad CPC) is only possible using
+      a <tt>POKE SYSVARPTR+30,...</tt> command. </p>
+<p> To restore a correct behavior of the <tt>PEEK/POKE</tt> command, I
+      have changed <tt>BlInteger</tt> from 32bit to 64bit. </p>
+<p> So far, the following issues have been encountered </p>
+<ol>
+  <li> Programs that don't properly terminate with <tt>END</tt> will
+  cause a <tt>Segmentation fault with si_addr 0xnnnn si_ptr (nil) and
+  si_code 1</t> 
+
+    <li> <tt>LABEL nnn</tt> and <tt> GOTO LABEL nnn</tt> also cause a
+    segfault. 
+  </ol> 
+<p> The other commands operate normally. </p>
+
+<address>
+<a href="mailto:edmond@ubuntu-W94-95-97PU">edmond</a>
+</address>
+</body>
+</html>

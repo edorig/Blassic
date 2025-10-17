@@ -247,7 +247,7 @@ floating point are admitted for compatibility with other Basics.<br>
 The <i>letter-specifier</i> is a comma separated list of single letter
 				of ranges of letters.<br><br> </dd>
 				
-<dt>DEF FN</dt> See <code>FN</code> below </dd>
+<dt>DEF FN</dt> <dd> See <code>FN</code> below </dd>
 
 <dt>DEFDBL</dt>
 <dd>Same as DEF REAL</dd>
@@ -367,7 +367,8 @@ D , L , R , E , F , G , H , or relative M commands to get the actual distance
   interactive mode of the interpreter.</dd>
 
 <dt>ENVIRON</dt>
-<dd>Not documented yet.</dd>
+<dd>The command <code>ENVIRON("NAME=value")</code> sets the value of
+  the environment variable <code>NAME</code> to <code>value</code>. </dd> 
 <!--- modifies environment variables ---> 
 <dt>ENVIRON$</dt>
 <dd>The function <code>ENVIRON$("NAME")</code> returns the value of the
@@ -519,12 +520,12 @@ char$.</dd>
 
 <dt>FINDFIRST$</dt>
 <dd>Function. <code>FINDFIRST$ (mask$)</code> Returns the first file that
-matches wiht mask$ or the empty string if there is no match . The wildcards
+matches  with mask$ or the empty string if there is no match . The wildcards
 allowed and his interpertation are operating system dependant.</dd>
 
 <dt>FINDNEXT$</dt>
 <dd>Function whitout parameters. Returns the next file that matches with the
-mask$ used in the las FINDFISRT$ executed, or the empty string if there is
+mask$ used in the last FINDFISRT$ executed, or the empty string if there is
 no more matches.</dd>
 
 <dt>FIX</dt>
@@ -584,6 +585,11 @@ ON GOTO.</dd>
 
 <dt>GRAPHICS</dt>
 <dd>Not documented yet.</dd>
+<!----- GRAPHICS PEN sets the color used by subsequent plot and draw
+instructions 
+GRAPHICS PAPER sets background color after CLS (for graphics, not
+text) 
+GRAPHICS CLS erases the screen
 <!---- Seems to combine PEN, PAPER and CLS in a single instruction
 ---> 
 <a name="h"></a>
@@ -1179,7 +1185,7 @@ Windows (except if compiled under Cygwin) and the value returned from a
   address <tt>n</tt> the value 0&le;<tt>m</tt>&le;65535. Use with caution.</dd>
 
 <dt>POKE32</dt>
-<dd>><code> POKE16 n,m</code> Gives the 4-byte word at memory
+<dd><code> POKE32 n,m</code> Gives the 4-byte word at memory
   address <tt>n</tt> the value 0&le;<tt>m</tt>&le;2^32-1. Use with caution.</dd></dd>
 
 <dt>POP</dt>
@@ -1253,7 +1259,13 @@ sample programs.</dd>
 (X,Y) optionnally with mode <tt>MODE</tt>. The keyword <tt>MODE</tt>
 can be <tt>XOR</tt> (bitwise exclusive <tt>OR</tt> with the background
 color), <tt>AND</tt>(bitwise <tt>AND</tt>),<tt>OR</tt>
-(bitwise <tt>OR</tt>) or <tt>NOT</tt>.
+(bitwise <tt>OR</tt>) or <tt>NOT</tt>. The logical operations are done
+between intensities of red, green, blue of the respective inks, not
+between ink numbers. With the default color scheme, the logical
+operations between ink or RGB intensities turn out to be equivalent,
+but this is not true is the RGB intensities have been changed by an
+INK command.
+
 </dd> 
 
 <a name="q"></a>

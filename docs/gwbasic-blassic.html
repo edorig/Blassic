@@ -7,16 +7,20 @@
 <dl>
   <dt>ATN</dt><dd> Calculates the arctangent. Blassic uses ATAN</dd>
   <dt>BLOAD</dt><dd><tt>BLOAD filename[,offset]</tt>
-    loads a file in memory</dd>
+    loads a file in memory at address DEF SEG + offset. DEF
+    SEG=&amp;HB800 indicates the video memory. 
+    Blassic uses
+    LOAD "filename",address[,size]</dd>
   <dt>BSAVE</dt><dd><tt>BSAVE filename,offset,length</tt>
     saves <tt>length</tt>
     octets
     starting at<tt> offset</tt>
-    to filename</dd>
+    to filename. Blassic uses SAVE "filename", B, address, length </dd>
   <dt>CALL</dt><dd><tt>CALL numvar[(variables)]</tt>
     calls a machine language
     subroutine at numvar passing the comma separated list<tt>
-      variables</tt>
+      variables. Blassic uses USR to call functions in dynamic link
+    libraries. </tt>
     .  </dd>
   <dt>COLOR</dt><dd><tt>COLOR [foreground][,[background][,border]]</tt>
     defines the <tt>foreground</tt>
@@ -37,20 +41,28 @@
     cursor. Blassic uses <tt>YPOS</tt>
   </dd>
   <dt>DEF SEG</dt><dd><tt>DEF SEG [=address]</tt>
-    assigns the current segment address to be referenced by a subsequent BLOAD, BSAVE, CALL,
-PEEK, POKE, or USR.</dd>
+    assigns the current segment address to be referenced by a
+    subsequent BLOAD, BSAVE, CALL, PEEK, POKE, or USR.</dd>
   <dt>DEF USR</dt><dd><tt>DEF USR[n]=integer</tt>
     specifies the starting address of an assembly language subroutine to be called from memory by
 the USR function.</dd>
   <dt>ERDEV($)</dt><dd>returns the actual value (ERDEV) of a device
     error, and the name of the device (ERDEV$) causing the error.</dd>
-  <dt>EXTERR</dt><dd>returns extended error information.</dd> 
+  <dt>EXTERR(n)</dt><dd>returns MS-DOS extended error information.
+    <ul>
+      <li> n=0 return extended error code
+<li>n=1 Extended error class
+<li> n=2 Extended error suggested action
+<li> 	n=3 Extended error location
+	</ul>
+  </dd> 
   <dt>FRE</dt><dd>returns the number of available bytes in allocated string memory.</dd>
   <dt>IOCTL</dt><dd><tt>IOCTL[#]file number,string</tt>
     sends a "control data" string to a character device driver anytime after the
 driver has been opened. </dd>
   <dt>IOCTL$</dt><dd><tt>IOCTL$([#]file number)</tt>
-    ead a "control data" string from an open character device driver.</dd>
+    read a "control data" string from an open character device driver.</dd>
+    <dt>INP</dt><dd>reads a byte from a port. Not feasible in Blassic.</dd>
   <dt>KEY</dt><dd><tt>KEY key number,string expression</tt>
     key number is the
     number of the function key to be redefined. key number may range from 1-20.
@@ -67,13 +79,19 @@ Erases the key display from the 25th line</dd>
   <dt>ON COM/KEY/PEN/PLAY/STRIG/TIMER</dt><dd> creates an event trap line number for a specified event (such as communications, pressing
 function or cursor control keys, using the light pen, or using joysticks).</dd>
   <dt>OUT</dt><dd><tt>OUT port,byte</tt>
-    sends byte to a machine output port port.</dd>
+    sends byte to a machine output port port. Not feasible in Blassic. </dd>
   <dt>PALETTE</dt><dd><tt>PALETTE [attribute,color]</tt>
     gives color to attribute. Blassic uses <tt>INK attribute, red,
     green, blue</tt>
   </dd>
-  <dt>PCOPY</dt><dd><tt>PCOPY sourcepage, destinationpag</tt>
-    e copies one screen page to another in all screen modes.</dd>
+  <dt>PALETTE USING</dt><dd><tt>PALETTE USING arrayname ( starting) </tt>
+    gives colors defined in <tt>arrayname</tt>
+    to attributes starting at <tt>starting</tt>
+    . Blassic uses <tt>INK attribute, red,
+    green, blue</tt>
+  </dd>
+  <dt>PCOPY</dt><dd><tt>PCOPY sourcepage, destinationpage</tt>
+     copies one screen page to another in all screen modes.</dd>
   <dt>PEN</dt><dd><tt>PEN ON/OFF/STOP</tt>
     enables or disables the reading of
     optical pen.</dd>
@@ -83,37 +101,66 @@ function or cursor control keys, using the light pen, or using joysticks).</dd>
 plays music by embedding a music macro language into the string data type.</dd>
   <dt>PLAY(n)</dt><dd>returns the number of notes currently in the background music queue.</dd>
   <dt>PMAP</dt><dd>PMAP is used with WINDOW and VIEW to translate coordinates.</dd>
+  <dt>POINT</dt><dd>POINT(x,y) is used to read the color of a point. Blassic uses TEST(x,y)</dd> 
   <dt>PRESET</dt><dd>displays a point at a specified place on the
   screen during use of the graphics mode. (Blassic uses PLOT)</dd>
   <dt>PSET</dt><dd>same </dd>
+  <dt>SCREEN</dt> <dd><tt>variable=SCREEN(row,col,[,z])</tt>
+   the variable contains the ASCII code of the character occupying
+   the indicated row and column. When the optional parameter z is
+   present, and nonzero, the function returns the color of the
+   character instead of ASCII code. </dd>
+  
 <dt>SCREEN</dt><dd><tt>SCREEN [mode]</tt>
   selects a graphic mode<ol>
       <li>SCREEN 0: text mode (MODE 0)</li>
-     <li> SCREEN 1: 320x200 (MODE 1)</li> 
-      <li>SCREEN 2: 640x200 (MODE 2)</li> 
-      <li>SCREEN 7:320 x 200  (MODE 1)</li> 
-      <li>SCREEN 8 640 x 200 (MODE 2) </li>
-      <li>SCREEN 9: 640x350 (MODE 10)</li>
-      <li>SCREEN 10: 640x350 (MODE 10) </li>
+     <li> SCREEN 1: 320x200 with 4 colors (MODE 1)</li> 
+      <li>SCREEN 2: 640x200 with 2 colors (MODE 2)</li> 
+      <li>SCREEN 7:320 x 200 with 16 colors  (MODE 1)</li> 
+      <li>SCREEN 8 640 x 200 with 16 colors (MODE 2) </li>
+      <li>SCREEN 9: 640x350 with 4 or 16 colors (MODE 10)</li>
+      <li>SCREEN 10: 640x350 monochrome (MODE 10) </li>
       
     </ol>
   </dd>
 <dt>SOUND</dt><dd><tt>SOUND freq,duration</tt>
   emits a sound of frequency
   freq for duration clock ticks. Clock ticks occur 18.2 times per second.</dd>
-  <dt>STICK</dt><dd>STICK(n) returns the x and y coordinates of two joysticks.</dd>
-  <dt>STRIG</dt><dd></dd>
+  <dt>STICK</dt><dd>STICK(n) returns the x and y coordinates of two joysticks. Blassic uses XMOUSE/YMOUSE.</dd>
+  <dt>STRIG</dt><dd>STRIG(n) returns the status of the joystick trigger. Blassic uses INKEY$ or GET A$.</dd>
   <dt>STRIG(n)</dt><dd></dd>
-  <dt>TIMER</dt><dd></dd>
+  <dt>TIMER</dt><dd>Returns the number of seconds since midnight or system reset. Blassic uses TIME to get the number of seconds
+  since Jan 1, 1970 00:00:00 UTC.</dd>
   <dt>UNLOCK</dt><dd><tt>UNLOCK [#]n [,[record number] [TO record
     number]]</tt>
   releases locks that have been applied to an opened file by
-  the LOCK command.</dd>
-  <dt>USR</dt><dd></dd>
-  <dt>USR</dt><dd></dd>
-  <dt>VARPTR$</dt><dd></dd>
-  <dt>VIEW</dt><dd></dd>
-  <dt>VIEW PRINT</dt><dd></dd>
+  the LOCK command. Although Unix has mandatory locks, Blassic does not implement file locking. </dd>
+  <dt>variable=USR [n] (argument)
+  </dt><dd>calls assembly language
+    routine number <tt>n</tt>
+    passing<tt> argument</tt>
+    and returns the result in<tt>
+      variable</tt>
+    .</dd>
+  <dt>VARPTR$(variable)
+  </dt><dd>returns a three-byte string. The
+  first byte indicates the type of the variable (2=integer, 3=string,
+  4=single precision float, 8=double precision float). The second
+  byte contains the least significant part of the 16-bit address of
+  the variable. The
+  last byte contains the most significant part of the 16-bit address. </dd>
+  <dt>VIEW [[SCREEN][(x1,y1)-(x2,y2) [,[fill][,[border]]]]</dt><dd>defines a physical viewport limit from x1,y1 (upper-left x,y coordinates) to x2,y2 (lower-
+right x,y coordinates). When <tt>SCREEN</tt> is present, the
+    coordinates are absolute, and points outside the view port are
+    not drawn. Without <tt>SCREEN</tt> the coordinates become relative
+    to the upper-left corner. <tt>fill</tt> fills the area with a
+    color. <tt>border</tt> draws a border around the area. </dd>
+  <dt>VIEW PRINT [topline TO bottomline]</dt><dd>sets the boundaries
+  of the screen text window. Without arguments,initializes the whole
+  screen area as the text window. With arguments, limits the text
+    window to lines between <tt>topline</tt> (&ge;1) and<tt>
+  bottomline</tt> (&lt;25)
+    . </dd>
   <dt>WAIT</dt><dd><tt>WAIT port number, n[,j]</tt>
     suspends program execution while monitoring the status of a machine input port.</dd>
   <dt>WINDOW</dt><dd></dd>
