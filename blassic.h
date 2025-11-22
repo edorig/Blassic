@@ -134,8 +134,11 @@ const BlInteger BlIntegerMin= BlInt32Min;
 const BlLineNumber BlMaxLineNumber= BlIntegerMax;
 
 // Special line number values.
-
+#if ULONG_MAX == 18446744073709551615UL
+const BlLineNumber LineEndProgram=INT_MAX; 
+#else
 const BlLineNumber LineEndProgram= BlUint32Max;
+#endif 
 const BlLineNumber LineBeginProgram= BlUint32Max - 1;
 const BlLineNumber LineDirectCommand= BlUint32Max - 2;
 const BlLineNumber LineNoDelete= BlUint32Max - 3;
